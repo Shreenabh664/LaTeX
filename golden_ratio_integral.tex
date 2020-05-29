@@ -1,0 +1,46 @@
+\documentclass{article}
+\usepackage{geometry}
+\geometry{a4paper, portrait, margin=1in}
+\title{Golden Ratio Integral}
+\author{Shreenabh Agrawal}
+\begin{document}
+
+\date{}
+\renewcommand{\familydefault}{\rmdefault}
+\maketitle{Question:}
+
+$$\int_{1}^{\phi}\frac{\left(x^{2}+1\right)}{\left(x^{4}-x^{2}+1\right)}\ln\left(1+x-\frac{1}{x}\right)\,dx$$
+
+\maketitle{Answer:}
+Dividing numerator and denominator of the fraction by $x^{2},$
+
+$$\int_{1}^{\phi}\frac{\left(1+\frac{1}{x^{2}}\right)}{\left(x^{2}-1\ +\ \frac{1}{x^{2}}\right)}\ln\left(x-\frac{1}{x}+1\right)dx$$
+
+Now taking a substitution, $x-\frac{1}{x}$ as $t$,
+so that, $$\left(1\ +\ \frac{1}{x^{2}}\right)dx=dt$$
+
+Thus, the original integral (with new limits) can be rewritten as:
+$$\int_{0}^{1}\frac{\ln\left(1+t\right)}{1+t^{2}}dx$$
+Taking the trigonometric substitution $$ \tan\theta\ =\ t $$
+such that $$\left(\sec^{2}\theta\ \right)d\theta\ =\ dt$$
+
+The integral can be re-written with new limits as (let us denote it by (i))
+$$\int_{0}^{\pi/4}\ln\left(1+\tan\theta\right)d\theta$$
+
+By applying King's rule of sum of limits, the same integral can be re-written as
+$$\int_{0}^{\pi/4}\ln\left(1+\tan\left(\frac{\pi}{4}-\theta\right)\right)d\theta$$
+
+Applying expansion for tangent function,
+$$\int_{0}^{\pi/4}\ln\left(1+\frac{1-\tan\theta}{1+\tan\theta}\right)d\theta $$
+
+This can be simplified as (let us denote it by (ii)):
+$$\int_{0}^{\pi/4}\left(\ln2\ -\ \ln\left(1+\tan\theta\right)\right)d\theta$$
+
+Now adding (i) and (ii), we get twice of the value of the required definite integral as:
+$$\int_{0}^{\pi/4}\ln2\ d\theta$$
+
+Now substituting the limits and dividing by 2 (because we added two integrals in last step), we get our required answer as:
+$$\frac{\pi}{8}\ln2$$
+The approximate value of which is:
+0.272198261288
+\end{document}

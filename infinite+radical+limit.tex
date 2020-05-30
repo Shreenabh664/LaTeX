@@ -1,0 +1,34 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Infinite Radical Limit}
+\author{Shreenabh Agrawal }
+\date{\today}
+\usepackage{amsmath}
+\usepackage{geometry}
+\geometry{a4paper, portrait, margin=1in}
+\usepackage{natbib}
+\usepackage{graphicx}
+
+\begin{document}
+
+\maketitle
+
+\section{Question}
+Find $x$ for which
+$$\lim_{x\to\infty}\sqrt{1+\sqrt{x+\sqrt{x^{2}+...\ +\ \sqrt{x^{n}}}}}=2 $$
+\section{Solution}
+The key observation here is that
+$$t+1\ =\ \sqrt{t^{2}+2t+1}$$
+$$=\sqrt{t^{2}+\sqrt{\left(2t+1\right)^{2}}}$$
+$$=\ \sqrt{t^{2}+\sqrt{4t^{2}+4t+1}}$$
+$$=\ \sqrt{t^{2}+\sqrt{4t^{2}+\sqrt{\left(4t+1\right)^{2}}}}$$
+$$=\ \sqrt{t^{2}+\sqrt{4t^{2}+\sqrt{16t^{2}+\sqrt{64t^{2}+...}}}}$$
+Now putting $t=1$, we get,
+$$2=\ \sqrt{1+\sqrt{4+\sqrt{16+\sqrt{64+...}}}}$$
+Hence, the answer is 
+$$\boxed{x=4}$$
+
+
+
+\end{document}

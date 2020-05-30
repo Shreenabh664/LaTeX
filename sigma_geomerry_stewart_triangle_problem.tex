@@ -1,0 +1,36 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+
+\title{Vibing Math (Geometry Problem)}
+\author{Shreenabh Agrawal }
+\date{\today}
+\usepackage{amsmath}
+\usepackage{geometry}
+\geometry{a4paper, portrait, margin=1in}
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage[makeroom]{cancel}
+
+
+\begin{document}
+
+\maketitle
+
+\section{Question}
+Consider an isosceles triangle $ABC$ in which $AB = BC = 10$ units. Let $P_1, P_2, P_3, ... P_{60}$ be $60$ points on $BC$. Then, $$\sum_{i=1}^{60} (AP_i^2 + P_iB\times P_iC) = ?$$	
+
+\section{Solution}
+By Stewart's Theorem, 
+$$(AB^2\times P_iC) + (AC^2\times P_iB) = BC ( AP_i^2 + P_iB\times P_iC)$$
+Now, $AB = 10$ and $AC = 10$ ,so above expression becomes, 
+$$100 (P_iB + P_iC) = BC (AP_i^2 + P_iB\times P_iC )$$
+But here, $P_iB + P_iC = BC$, hence the above equation becomes
+$$100 \cancel{(P_iB + P_iC)} = \cancel{BC} (AP_i^2 + P_iB\times P_iC )$$
+$$100 = (AP_i^2 + P_iB \times P_iC)$$
+This is true for all $i$ in $P_i$. Hence, the answer is
+$$\sum_{i=1}^{60} (AP_i^2 + P_iB\times P_iC) = 60 \times 100$$
+$$\boxed{= 6,000}$$
+\end{document}
+

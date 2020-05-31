@@ -1,0 +1,36 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+
+\title{Vibing Math (Floor Function Problem)}
+\author{Shreenabh Agrawal}
+\date{\today}
+\usepackage{amsmath}
+\usepackage{geometry}
+\geometry{a4paper, portrait, margin=1in}
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage[makeroom]{cancel}
+
+
+\begin{document}
+
+\maketitle
+
+\section{Question}
+
+    Find $x$ if
+$$x{\lfloor x {\lfloor x {\lfloor x \rfloor}\rfloor}\rfloor}=88$$
+Here $x>0$, $\lfloor x \rfloor$ is the floor function.
+
+\section{Solution}
+Approximating given expression as $x^4\approx88$, we have $$x\approx3.0628$$Also, the given expression can be rewritten as: $${\lfloor x {\lfloor x {\lfloor x \rfloor}\rfloor}\rfloor}=\frac{88}{x}$$
+This implies that $\frac{88}{x}$ is an integer. By substituting our approximate value of $x$, we get $$\frac{88}{x} \approx 28.7318$$
+This further means that $$x = \frac{88}{28} \: \left(=\frac{22}{7}\right) \:or\: \frac{88}{29}$$
+Substituting back and checking, we find that, 
+$$\frac{22}{7} {\left\lfloor \frac{22}{7} {\left\lfloor \frac{22}{7} {\left\lfloor \frac{22}{7} \right\rfloor}\right\rfloor}\right\rfloor} = 88$$
+Therefore
+$$\boxed{x = \frac{22}{7}}$$
+\end{document}
+

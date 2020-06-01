@@ -1,0 +1,32 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{Messy Integral (@Vibingmath)}
+\author{Shreenabh Agrawal}
+\date{\today}
+\usepackage{amsmath}
+\usepackage{geometry}
+\geometry{a4paper, portrait, margin=1in}
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{relsize}
+\usepackage[makeroom]{cancel}
+\begin{document}
+
+\maketitle
+
+\section{Question}
+$$\LARGE{{\int\limits_{1}^{e}}\frac{x-x\ln x+1}{x\left(x+1\right)^{2}+x\ln^{2}x}\: dx}$$
+\section{Solution}
+
+Let us take substitution $\ln x = t$ so that $dx = e^{t}dt$, thus our integral becomes
+
+$$\LARGE{\int\limits_{0}^{1}}\ \frac{\left(e^{t}\ -\ te^{t}\ +\ 1\right)}{\cancel{e^{t}}\left[\left(e^{t}+1\right)^{2}\ +\ t^{2}\right]}\: {\cancel{e^{t}}}\:dt$$
+Now dividing both numerator and denominator by $t^2$ we get, 
+$$\mathlarger{\LARGE{\int\limits_{0}^{1}}\ \frac{\frac{e^{t}}{t^{2}}+\ \frac{1}{t^{2}}-\frac{e^{t}}{t}}{\left(\frac{e^{t}}{t}+\frac{1}{t}\right)^{2}+\ 1}\ dt}$$
+Now taking a final substitution $$\frac{e^{t}}{t}+\frac{1}{t} = u$$ so that $$\left(\frac{e^{t}}{t}-\frac{e^{t}}{t^{2}}-\frac{1}{t^{2}}\right)dt\ =\ du$$
+The integral simplifies as:
+$$\LARGE{\int\limits_{e+1}^{\infty}\frac{1}{1+u^{2}}\ du}$$
+Plugging in the limits, the answer is $$\boxed{=\tan^{-1}\left(\frac{1}{1+e}\right)}$$
+\end{document}

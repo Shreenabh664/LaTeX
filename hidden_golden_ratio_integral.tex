@@ -1,0 +1,39 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\title{Hidden Golden Ratio Integral (@solvingtogether)}
+\author{Shreenabh Agrawal}
+\date{\today}
+\usepackage{amsmath}
+\usepackage{geometry}
+\geometry{a4paper, portrait, margin=1in}
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{relsize}
+\usepackage[makeroom]{cancel}
+\begin{document}
+\maketitle
+
+\section{Question}
+
+If $I$ = $$\mathlarger{\LARGE{{\int\limits_{0}^{1}}\frac{1-x^{2}}{x^{2}+\left(x^{2}+1\right)^{2}}\: dx}} $$
+Then find $tan(I) + sec(I)$
+
+\section{Solution}
+
+Let us take substitution $x = tan \theta$ so that $dx\ =\ \sec^{2}\theta\ d\theta$, thus our integral becomes,
+$$\mathlarger{\LARGE{\int\limits_{0}^{\pi/4}}\frac{1-\tan^{2}\theta}{\tan^{2}\theta\ +\ \sec^{4}\theta}\sec^{2}\theta\: d\theta\ } $$
+Now converting $tan \theta$ and $sec \theta$ to respective $sin$ and $cos$ functions, the integral becomes,
+$$\mathlarger{\LARGE{\int\limits_{0}^{\pi/4}\frac{\cos^{2}\theta-\sin^{2}\theta}{\sin^{2}\theta\ \cos^{2}\theta\ +\ 1}\ d\theta}} $$
+Using double angle properties, the integral can be rewritten as:
+$$\mathlarger{\LARGE{\int\limits_{0}^{\pi/4}\frac{\cos2\theta}{\frac{\sin^{2}2\theta}{4}+1} d\theta}} $$
+Taking a final substitution $\sin2\theta=u$ so that $2\cos2\theta\ d\theta=du$,
+$$\mathlarger{\LARGE{\int\limits_{0}^{1}\frac{2}{4+u^{2}}\ du}} $$
+Plugging in the limits, we get,
+$${I =\tan^{-1}\left(\frac{1}{2}\right)}$$
+For the final answer,
+$$\tan I+\sec I=\frac{1}{2}+\frac{\sqrt{5}}{2}$$
+$$\boxed{\tan I+\sec I= \phi}$$
+Where $\phi$ is the Golden Ratio.
+
+\end{document}

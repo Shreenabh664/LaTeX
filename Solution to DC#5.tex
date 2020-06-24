@@ -1,0 +1,17 @@
+\documentclass{article}
+\usepackage{amsfonts}
+
+\usepackage{graphicx}
+\begin{document}
+Let $A=\sum_{k=1}^{p-1}\frac{(p-1)!}{k}$ and $B=(p-1)!$. We have \begin{equation}\sum_{k=1}^{p-1}\frac{1}{k} = \frac{A}{B}=\frac{a}{b}.\end{equation}
+
+As $\sum_{k=1}^{p-1}\frac{(p-1)!}{k} = \sum_{k=1}^{p-1}\frac{(p-1)!}{p-k}$, we have 
+\begin{equation}A = \frac{1}{2}\sum_{k=1}^{p-1}\bigg(\frac{(p-1)!}{k}+\frac{(p-1)!}{p-k}\bigg) = \frac{p}{2}\sum_{k=1}^{p-1}\frac{(p-1)!}{k(p-k)}. \end{equation}
+Let $k^{-1}\bmod p$ denote the modular inverse of $k\bmod p$, that is $k^{-1}\bmod p$ satisfies $kk^{-1}\equiv 1 \bmod p$, note that $\{1^{-1}\bmod p,\cdots,(p-1)^{-1}\bmod p\} = \{1,\cdots,p-1\}$. So for the sum involved in RHS of (2), we have \[\sum_{k=1}^{p-1}\frac{(p-1)!}{k(p-k)}\equiv -(p-1)!\sum_{k=1}^{p-1}(k^{-1})^2 \bmod p\equiv -(p-1)!\sum_{k=1}^{p-1}k^2 \equiv -(p-1)!\frac{(p-1)p(2p-1)}{6} \bmod p,\],in the above we have $\sum_{k=1}^{p-1}(k^{-1})^2 \bmod p\equiv \sum_{k=1}^{p-1}k^2 \bmod p$ by using $\{k^{-1}\bmod p:1\leq k\leq (p-1)\}$ is a permutation of $\{k:1\leq k\leq (p-1)\}$. For $p>3$ as $p|-\frac{(p-1)p(2p-1)}{6}$ we have \begin{equation} 
+     p|\sum_{k=1}^{p-1}\frac{(p-1)!}{k(p-k)}.
+    \end{equation}
+As $A = \frac{p}{2}\sum_{k=1}^{p-1}\frac{(p-1)!}{k(p-k)}$, from (3), we have $p^2|A$. As $B=(p-1)!$, we have $gcd(B,p^2)=1$. From (1), $Ab = Ba$, hence as $p^2|A$ we have $p^2|Ba$ and as $gcd(B,p^2)=1$, we have $p^2|a$. 
+
+
+
+\end{document}

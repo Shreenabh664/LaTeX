@@ -1,0 +1,36 @@
+\documentclass{article}
+\usepackage{amsfonts}
+
+\usepackage{graphicx}
+\begin{document}
+	
+First let us investigate the solutions of Pell's equation $x^2-7y^2=1$ in positive integers.
+
+\newtheorem{Claim1}{Lemma}
+\newtheorem{Claim2}[Claim1]{Lemma}
+
+\begin{Claim1}
+	There are no solutions in positive integers for $x^2-7y^2=1$ satisfying $x+\sqrt{7}y<8+3\sqrt{7}$.
+\end{Claim1}
+This Lemma can be verified by checking for all positive integers $(x,y)$ satisfying $x+\sqrt{7}y<8+3\sqrt{7}$ as there are only finitely many such $(x,y)$.
+
+\begin{Claim2}
+	$(x,y)$ is a solution in positive integers to $x^2-7y^2=1$ if and only if $x+\sqrt{7}y = (8+3\sqrt{7})^k$ for some positive integer $k$.
+\end{Claim2}
+Proof: If $x+\sqrt{7}y = (8+3\sqrt{7})^k$, then $x-\sqrt{7}y = (8-3\sqrt{7})^k$ and $x^2-7y^2=(8+3\sqrt{7})^k(8-3\sqrt{7})^k=1$, hence $(x,y)$ is a solution.
+
+Now we have a family of solutions $(x',y')$ given by, $x'+\sqrt{7}y' = (8+3\sqrt{7})^k$ for each natural number $k$.We will show that all the solutions are of this form by using proof by contradiction. If there is a solution $(x_2,y_2)$ not of this form, then there exists a non negative integer $k$ such that \begin{equation}(8+3\sqrt{7})^{k}<(x_2+y_2\sqrt{7})<(8+3\sqrt{7})^{k+1}=(x_1+\sqrt{7}y_1)
+\end{equation}   
+then as $(x,y)$ given by \[x+\sqrt{7}y = (x_1x_2 -7y_1y_2)+\sqrt{7}(x_2y_1-x_1y_2)   = \frac{x_1+\sqrt{7}y_1}{x_2+\sqrt{7}y_2}<8+3\sqrt{7} \]
+is also a solution in positive integers, inequality has been obtained from (1), but from Lemma 1 there are no solutions for which $x+\sqrt{7}y<8+3\sqrt{7}$. Hence all the solutions are obtained from $x+\sqrt{7}y = (8+3\sqrt{7})^{k}.$ This completes the proof of Lemma 2.
+
+Coming back to our original problem $f(N)=2+2\sqrt{28N^2+1}$ is an integer, without loss of generality we can assume $N>0$(for $N=0$, $2+2\sqrt{28N^2+1}$ is a perfect square, and $f(-N)=f(N)$), which implies $\sqrt{28N^2+1}$ is rational, which implies $\sqrt{28N^2+1}$ is positive integer(As intersection of algebraic integers and rationals is integers). 
+
+Let $x=\sqrt{28N^2+1}$ then $x^2-7(2N)^2=1$ and from Lemma 2, $x+2\sqrt{7}N = (8+3\sqrt{7})^k$, which implies 
+\[2N = \sum_{i=0,(k-i)\equiv 1 \bmod 2}^{k} {k\choose i}8^i 3^{k-i}7^{\frac{k-i-1}{2}}.\]
+The right hand side of above expression is even if and only if $k$ is even. Hence, $k=2s$ for natural $s$, and $x+2\sqrt{7}N = (8+3\sqrt{7})^{2s}$ which implies \[x=\frac{((8+3\sqrt{7})^{2s}+(8-3\sqrt{7})^{2s})}{2},\]
+and 
+\[2+2\sqrt{28N^2+1} = 2x+2 = (8+3\sqrt{7})^{2s}+(8-3\sqrt{7})^{2s}+2 = ((8+3\sqrt{7})^{s}+(8-3\sqrt{7})^{s})^2,\] as $(8+3\sqrt{7})^{s}+(8-3\sqrt{7})^{s}$ is an integer,  $2+2\sqrt{28N^2+1}$ is a perfect square.
+
+
+\end{document}

@@ -1,0 +1,15 @@
+\documentclass{article}
+\usepackage{amsfonts}
+
+\usepackage{graphicx}
+\begin{document}
+	If $4mn-m-n$ is a perfect square then $4mn-m-n=l^2$ for some positive integer $l$. This implies \begin{equation}
+	(4m-1)(4n-1)=(2l)^2+1.
+	\end{equation} Since, $(4m-1)\geq 3$ has to have a prime divisor $p$ of the form $4k+3$, as if all the prime divisors of $4m-1$ are of the form $4k+1$ then $4m-1$ has to be of the form $4k+1$, which is not possible. Let $p$  be a prime divisor of $(4m-1)$ of the form $4k+3$, then from (1) we have, $(2l)^2\equiv -1 \bmod p$ exponentiating both sides by $\frac{p-1}{2}$ we get 
+	\begin{equation}
+	(2l)^{p-1}\equiv (-1)^{\frac{p-1}{2}}\bmod p.
+	\end{equation}
+The left hand side of (2) is congruent to $1\bmod p$ from Fermat's little Theorem, and as $p$ is of the form $4k+3$, $\frac{p-1}{2}$ is odd and the right hand side of (2) is $-1$ so (2) implies $1\equiv -1 \bmod p$ or $p|2$ which is absurd as $p\geq 3$. Hence $4mn-m-n$ can never be a perfect square when $m$, $n$ are positive integers.
+	
+	
+\end{document}

@@ -1,0 +1,43 @@
+\documentclass{article}
+\begin{document}
+
+\title{Solution to Shreenabh Agrawal's Daily Challenge 6}
+\author{Jose Bedoya}
+\maketitle
+
+\vspace{10mm}
+
+{\small
+
+$$\int_{0}^{1} \ln{x}\ln{(1-x)}\,dx$$
+\vspace{5mm}
+Knowing,
+$$\sum_{k=1}^{\infty} x^{k-1} = \frac{1}{1-x}\,, \hspace{2mm} |x|<1$$
+Integrating both sides:
+$$\sum_{k=1}^{\infty} \frac{x^k}{k} = -\ln{(1-x)}$$
+Therefore,
+$$\int_{0}^{1} \ln{x}\ln{(1-x)}\,dx = \int_{0}^{1} \ln{x}\,\left(-\sum_{k=1}^{\infty} \frac{x^k}{k}\right)\,dx$$
+Here we can change the order of integration and summation (think of it in an intuitive way)
+$$= -\sum_{k=1}^{\infty}\frac{1}{k}\int_{0}^{1} x^k\ln{x}\,dx$$
+Applying IBP,
+$$=-\sum_{k=1}^{\infty} \frac{1}{k}\left(\frac{x^{k+1}\ln x}{k+1}\Big|_0^1 -\frac{1}{k+1}\int_{0}^{1}x^{k} \,dx \right)$$
+$$=\sum_{k=1}^{\infty} \frac{1}{k(k+1)^2}$$
+$$=\sum_{k=1}^{\infty} \frac{k+1-k}{k(k+1)^2}=\sum_{k=1}^{\infty}\frac{1}{k(k+1)} - \sum_{k=1}^{\infty}\frac{1}{(k+1)^2}$$
+
+\vspace{2mm}
+The first sum is telescopic, this means
+$$\sum_{k=1}^{\infty}\frac{1}{k(k+1)}=\sum_{k=1}^{\infty} \left(\frac{1}{k}-\frac{1}{k+1}\right)= \lim_{n\to\infty}\left(1-\frac{1}{2}+\frac{1}{2}-\frac{1}{3}+\cdots + \frac{1}{n}-\frac{1}{n+1}\right)$$
+$$\sum_{k=1}^{\infty}\frac{1}{k(k+1)}=1$$
+As for the second sum, we know the Riemann Zeta Function evaluated at $s$ is 
+
+$$\zeta(s)=\sum_{k=1}^{\infty} \frac{1}{k^s}$$
+
+Therefore,
+$$\sum_{k=1}^{\infty} \frac{1}{(k+1)^2}=\zeta(2)-1$$
+And,
+$$\zeta(2)=\frac{\pi^2}{6}$$
+Thus, our final answer is
+
+$$\int_{0}^{1} \ln x \ln{(1-x})\,dx = 2-\frac{\pi^2}{6}$$
+}
+\end{document}

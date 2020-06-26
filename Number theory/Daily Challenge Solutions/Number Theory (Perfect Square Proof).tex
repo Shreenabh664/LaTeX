@@ -1,0 +1,52 @@
+\documentclass{article}
+\begin{document}
+
+\title{Shreenabh Agrawal's Daily Challenge 7}
+\author{Jose Bedoya}
+\maketitle
+{\normalsize
+\vspace{10mm}
+
+Prove that if 
+
+$$a = 2+2\sqrt{28n^2+1}$$
+
+is an integer, then it is a perfect square.
+
+\vspace{7mm}
+\textbf{Solution}
+
+\vspace{5mm}
+Notice that for $a$ to be an integer
+
+$$28n^2+1$$
+
+must be a perfect square.
+Therefore,
+$$28n^2+1 = q^2, \, \mbox{for some} \, q \in \textbf{N}$$
+
+It's easy to see that $q$ is an odd number. Hence,
+
+$$7n^2= \left(\frac{q+1}{2}\right)\left(\frac{q-1}{2}\right)$$
+
+As these are two consecutive numbers, they are prime relatives (no common divisors). This is, they cannot form a perfect square if not by separate. In addition, as $7$ is prime, it must divide just one of them. Therefore,
+
+$$\frac{q+1}{2}= 7r^2,\hspace{3mm} \frac{q-1}{2}=s^2$$
+or
+\vspace{2mm}
+$$\frac{q+1}{2}= s^2,\hspace{3mm} \frac{q-1}{2}=7r^2$$
+for some $s, r \in \textbf{N}$.
+
+\vspace{3mm}
+Notice the first case is not possible as $s^2 \equiv -1$ (mod $7$)
+In other words, there are no perfect squares congruent to $-1$ (mod $7$). This is trivial to see, just make a list of numbers from $1$ to $6$, square each of them and you will see no final number has remainder of $6$ (same as saying $-1$) when divided by $7$.
+
+\vspace{5mm} 
+Hence,
+
+$$a = 2+2\sqrt{28n^2+1} = 2(q+1)$$
+$$\Rightarrow a = 4s^2 = (2s)^2$$
+
+which is always a perfect square.
+}
+\end{document}

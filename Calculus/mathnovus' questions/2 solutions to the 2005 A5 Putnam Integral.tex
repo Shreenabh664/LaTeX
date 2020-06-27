@@ -1,0 +1,147 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\usepackage{t1enc}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usetikzlibrary{arrows}
+\usetikzlibrary{decorations.markings}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{amssymb}
+\usepackage{ragged2e}
+\usepackage{romannum}
+\usepackage[normalem]{ulem}
+\usepackage{cancel}
+\color{white}
+\definecolor{Velvety Red}{RGB}{124,10,2}
+\definecolor{Chalkboard Green}{RGB}{0,66,37}
+\definecolor{Miscellaneous Blue}{RGB}{0,33,71}
+\begin{document}
+\pagecolor{Chalkboard Green}
+\Huge
+\begin{equation}
+    \int_{0}^{1}\frac{\ln{(x+1)}}{x^{2}+1} \text{ $dx$} \nonumber
+\end{equation}
+\newline 
+\begin{center}
+Swipe For Solution $\Rightarrow$  
+\end{center}
+\newpage
+\normalsize
+\begin{equation}
+I = \int_{0}^{1}\frac{\ln{(x+1)}}{x^{2}+1} \text{ $dx$} \nonumber
+\end{equation}
+\newline
+There are 2 ways to solve this integral. We can go with u-substitution or with a simple trig sub. We can also use Feynman's Technique but I have not learnt it yet.
+\newline
+\newline
+\textbf{Method $\Romannum{1}$}:
+
+\begin{eqnarray}
+    \text{ let $x = \frac{1-u}{1+u}$} \to \text{$dx = \frac{-2}{(u+1)^{2}}$}\nonumber
+\end{eqnarray}
+\begin{eqnarray}
+    x + 1 = \frac{2}{1+u}\text{ and }x^{2} + 1 = \frac{2(u^{2}+1)}{(1+u)^{2}}\nonumber
+\end{eqnarray} 
+Substituting these in our integral gives us the following equation:
+\begin{equation}
+    I =  \int_{1}^{0}\frac{\ln{(\frac{2}{1+u})}}{\frac{2(u^{2}+1)}{(u+1)^{2}}} \times\frac{-2}{(u+1)^{2}} \text{ $du$}\nonumber
+\end{equation}
+Woah, this seems complicated so lets work on simplifying this to make our job easier.
+Lets start by cancelling out the factors of 2 and bring the negative sign to the outside, and notice how we can cancel out $(u+1)^{2}$ by multiplying the first fraction we have with $\frac{(u+1)^{2}}{(u+1)^{2}}$. This also enables us to reverse the bounds again when we take the $-1$ outside.
+\begin{equation}
+    I =  \int_{0}^{1}\frac{\cancel{(u+1)^{2}}\ln{(\frac{2}{1+u})}}{u^{2}+1}\times\frac{\cancel{(u+1)^{2}}}{\cancel{(u+1)^{2}}}\times\frac{1}{\cancel{(u+1)^{2}}} \text{ $du$} \nonumber   
+\end{equation}
+This process yields:
+\begin{equation}
+    I = \int_{0}^{1}\frac{\ln{(2)}-\ln{(1+u)}}{u^{2}+1} \text{ $du$}\nonumber
+\end{equation}
+And by splitting the fraction we will uncover something very interesting.
+\begin{equation}
+    I = \int_{0}^{1}\frac{\ln{(2)}}{u^{2}+1}\text{ $du$} - \int_{0}^{1}\frac{\ln{(u+1)}}{u^{2}+1}\text{ $du$}\nonumber
+\end{equation}  
+The fraction that we are subtracting is the integral we started with so we can rewrite our equation as:
+\begin{equation}
+2I = \int_{0}^{1}\frac{\ln{(2)}}{u^{2}+1}\text{ $du$} \nonumber  
+\end{equation}
+\newpage
+we can shift the $\ln{(2)}$ outside to get a pretty standard function we can integrate by a lookup table :).
+\begin{equation}
+    2I = \ln{(2)}\int_{0}^{1}\frac{1}{u^{2}+1}\text{ $du$} \to 2I =  \ln{(2)} \times \left[ \arctan{(u)} \right]_{0}^{1} \nonumber
+\end{equation}
+\begin{equation}
+    \therefore 2I = \frac{\pi}{4}\ln{(2)} \to I = \frac{\pi}{8}\ln{(2)}\nonumber
+\end{equation}
+\newpage
+\textbf{Method $\Romannum{2}$}:
+\begin{equation}
+    \text{Let } I = \int_{0}^{1}\frac{\ln{(x+1)}}{x^{2}+1} \text{ $dx$} \nonumber
+\end{equation}
+Consider the following substitutions to take our integral into the trig world.
+\begin{equation}
+    x = \tan{\theta} \to \text{$dx$} = \sec^{2}{\theta}\text{ $d\theta$}\nonumber
+\end{equation}
+under these transformations our integral changes to:
+\begin{equation}
+    I = \int_{0}^{\frac{\pi}{4}} \frac{\ln{(\tan\theta + 1)}}{\tan^{2}\theta+1}\times \sec^{2}{\theta}\text{ $d\theta$}\nonumber
+\end{equation}
+As $tan^{2}\theta + 1 = \sec^{2}\theta$, we can further simplify the equation above.
+\begin{equation}
+    I = \int_{0}^{\frac{\pi}{4}} \frac{\ln{(\tan\theta + 1)}}{\cancel{\sec^{2}{\theta}}}\times \cancel{\sec^{2}{\theta}}\text{ $d\theta$}\nonumber \to  I = \int_{0}^{\frac{\pi}{4}} \ln{(\tan\theta + 1)}\text{ $d\theta$}
+\end{equation}
+As $\tan{\theta} = \frac{\sin{\theta}}{\cos{\theta}}$, we can rewrite our integral into an easy to deal with form.
+\begin{equation}
+     I = \int_{0}^{\frac{\pi}{4}} \ln\left({\frac{\sin{\theta+\cos{\theta}}}{\cos{\theta}}}\right)\text{ $d\theta$}\nonumber
+\end{equation}
+Now we can combine the sine and cosine waves by a very special trigonometric identity which I will demonstrate in the red.
+\begin{equation}
+    \alpha\sin{(\theta)} + \beta\cos{(\theta)} = \sqrt{a^{2}+b^{2}}\times \cos\left(\theta + \arctan{\frac{-\alpha}{\beta}}\right)\nonumber
+\end{equation}
+according to this identity our integral can be rewritten as:
+\begin{equation}
+    I = \int_{0}^{\frac{\pi}{4}}\ln\left({\frac{\sqrt{2}\cos{(\theta-\frac{\pi}{4}})}{\cos{\theta}}}\right)\text{$d\theta$}\nonumber
+\end{equation}
+By splitting the natural logarithm we get:
+\begin{equation}
+I = \int_{0}^{\frac{\pi}{4}}\ln{\sqrt{2}+\ln{\cos\left(\theta-\frac{\pi}{4}\right)}} - \ln{\cos{\theta}} \text{ $d\theta$} 
+\end{equation}
+\newpage
+This has become pretty neat but let's just try to figure out a clever way to rewrite $\ln\cos\left(\theta-\frac{\pi}{4}\right)$. We can simply deal with it as an integral.
+\begin{equation}
+    I_{1} = \int_{0}^{\frac{\pi}{4}}\ln{\cos\left(\theta-\frac{\pi}{4}\right)}\text{ $d\theta$}\nonumber
+\end{equation}
+As $\cos{\theta}$ is an even function we can rewrite $I_{1}$ as:
+\begin{equation}
+    I_{1} = \int_{0}^{\frac{\pi}{4}}\ln{\cos\left(\frac{\pi}{4}-\theta\right)}\text{ $d\theta$}\nonumber
+\end{equation}
+Consider the following substitutions here:
+\begin{equation}
+    u = \frac{\pi}{4} - \theta \to \text{$du$} = -1 \nonumber
+\end{equation}
+Under this substitution we can change $I_{1}$ as shown below.
+\begin{equation}
+    I_{1} = -\int_{\frac{\pi}{4}}^{0}\ln{\cos{u}}\text{ $du$}\nonumber \to \int_{0}^{\frac{\pi}{4}}\ln{\cos{u}}\text{ $du$}
+\end{equation}
+Now lets substitute this back in (1) sit back, get some popcorn and see the magic.
+\begin{equation}
+    I = \int_{0}^{\frac{\pi}{4}}\ln{\sqrt{2}} \text{ $d\theta$} +\cancel{\int_{0}^{\frac{\pi}{4}}\ln{\cos{u}}\text{ $du$}}  - \cancel{\int_{0}^{\frac{\pi}{4}}\ln{\cos{\theta}} \text{ $d\theta$}} \nonumber
+\end{equation}
+now whenever we have Integrals which have different variables but same functions and boundaries we we can consider them to be equal and that is why we can cancel out those parts in (2). We are left with a pretty easy integral now.
+\begin{equation}
+    I = \int_{0}^{\frac{\pi}{4}}\ln{\sqrt{2}} \to I = \ln{\sqrt{2}}  \int_{0}^{\frac{\pi}{4}}\text{$d\theta$}\nonumber
+\end{equation}
+its a pretty standard integral now and we get:
+\begin{equation}
+I = \frac{\pi}{4}\ln{(2^{\frac{1}{2}})}\nonumber
+\end{equation}
+we can shift the index out and then we get our answer.
+\begin{equation}
+I = \frac{\pi}{8}\ln{(2)}\nonumber
+\end{equation}
+\newpage
+\Huge
+\begin{equation}
+    \int_{0}^{1}\frac{\ln{(x+1)}}{x^{2}+1} \text{ $dx$} = \frac{\pi}{8}\ln{(2)} \nonumber
+\end{equation}
+\end{document}

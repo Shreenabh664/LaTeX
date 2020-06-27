@@ -1,0 +1,37 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[dvipsnames]{xcolor}
+\title{}
+
+\begin{document}
+
+\maketitle
+\pagecolor{black}
+\textcolor{white}{
+\begin{center}
+   The Gaussian Integral
+    $$ \int_0^{\infty} e^{-x^2} \,dx = \frac{\sqrt{\pi}}{2} $$
+    Swipe For EZ Proof \textcolor{red}{$\Rightarrow$}
+\end{center}
+\newpage
+Let's start off with a simple $u$-substitution.
+$$I = \int_0^{\infty} e^{-x^2} \,dx $$
+$$x^2 \Rightarrow u \quad \quad 2x\,dx = \,du$$\\
+\medskip{}
+As $x = \sqrt{u}$, we have $\,dx = \frac{1}{2}u^{-\frac{1}{2}} \,du$
+$$I = \frac{1}{2}\int_0^{\infty} u^{\frac{1}{2}-1} e^{-u} \,du = \frac{1}{2}\cdot \Gamma\left(\frac{1}{2}\right)$$
+Recall from my last post that
+$$\Gamma(s)\Gamma(1-s) = \frac{\pi}{\sin(\pi s)}$$
+Let's plug in $s = \frac{1}{2}$ here to give us.
+$$\bigg[\Gamma\left(\frac{1}{2}\right)\bigg]^2 = \frac{\pi}{\sin\left( \frac{\pi}{2}\right)} \Rightarrow \Gamma\left( \frac{1}{2}\right) = \sqrt{\pi}$$
+$$I = \frac{1}{2} \cdot \Gamma\left( \frac{1}{2}\right)= \frac{\sqrt\pi}{2}$$
+\newpage
+$$\int_0^{\infty} e^{-x^2} \,dx = \frac{\sqrt{\pi}}{2}$$
+\begin{center}
+    For more, Follow
+\end{center}
+}
+
+
+\end{document}
+

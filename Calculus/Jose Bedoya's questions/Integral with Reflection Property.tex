@@ -1,0 +1,27 @@
+\documentclass{article}
+\begin{document}
+
+\title{Solution to Solving Together\textsc{\char13}s Integral}
+\author{Jose Bedoya}
+\maketitle
+{\normalsize
+\vspace{5mm}
+
+Evaluate
+$$\int_{0}^{1} \left(\frac{x^x}{(1-x)^{1-x}}-\frac{(1-x)^{1-x}}{x^x}\right)\,dx $$
+
+\vspace{5mm}
+\textbf{Solution}
+
+\vspace{4mm}
+Let
+$$I = \int_{0}^{1} \left(\frac{x^x}{(1-x)^{1-x}}-\frac{(1-x)^{1-x}}{x^x}\right)\,dx $$
+
+Substitute $x \rightarrow 1-x$
+$$I = \int_{0}^{1} \left(\frac{(1-x)^{1-x}}{x^x}-\frac{x^x}{(1-x)^{1-x}}\right)\,dx $$
+Therefore,
+$$ 2I = \int_{0}^{1} \left(\frac{x^x}{(1-x)^{1-x}}-\frac{x^x}{(1-x)^{1-x}}\right) - \left(\frac{(1-x)^{1-x}}{x^x}-\frac{(1-x)^{1-x}}{x^x}\right)\,dx $$
+}
+$$\Rightarrow \int_{0}^{1} \left(\frac{x^x}{(1-x)^{1-x}}-\frac{(1-x)^{1-x}}{x^x}\right)\,dx = 0$$
+
+\end{document}

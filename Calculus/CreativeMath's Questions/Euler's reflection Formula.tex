@@ -1,0 +1,42 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[dvipsnames]{xcolor}
+\title{}
+\begin{document}
+
+\maketitle
+\pagecolor{black}
+\textcolor{white}{
+\begin{center}
+    Euler's Reflection Formula \medskip{}
+    $$ \Gamma(s)\Gamma(1-s) = \frac{\pi}{\sin(\pi s)}$$
+    Swipe For Proof \textcolor{red}{$\Rightarrow$}
+\end{center}
+\newpage
+Recall the Gauss Representation of $\Gamma(s)$. If you're unfamiliar with this representation you can check out the post published on 15th June on my account \textbf{@creative\_\,math\_}. The Gauss representation states
+$$ \Gamma(s) = \lim_{n\to\infty} \left(\frac{n^s}{s} \prod_{k=1}^{n} \frac{k}{s+k}\right)$$
+Let's substitute $s \to -s$
+$$ \Gamma(-s) = \lim_{n\to\infty} \left( \frac{n^{-s}}{-s} \prod_{k=1}^{n} \frac{k}{k-s} \right) $$
+Let's multiply these expressions together to give
+$$\Gamma(s)\Gamma(-s) = \lim_{n\to\infty} \left(\frac{n^s}{s} \prod_{k=1}^{n} \frac{k}{s+k}\right) \times \lim_{n\to\infty} \left( \frac{n^{-s}}{-s} \prod_{k=1}^{n} \frac{k}{k-s} \right)$$
+$$\Gamma(s)\Gamma(-s) = \lim_{n\to\infty} \left(\frac{n^s}{s} \times \frac{n^{-s}}{-s} \prod_{k=1}^{n} \frac{k^2}{k^2-s^2} \right) $$
+We can simplify this further to give
+$$ \Gamma(s)\Gamma(-s) = \lim_{n\to\infty} \left( \frac{1}{-s^2}\prod_{k=1}^{\infty} \frac{1}{1-\frac{s^2}{k^2}}\right) $$
+$$\Gamma(s)\Gamma(-s) =   \frac{1}{-s^2} \left( \prod_{k=1}^{\infty} 1- \frac{s^2}{k^2} \right)^{-1}$$
+\newpage
+This product here is the product for $\sin(\pi s)$. Recall that
+$$ \sin(\pi s) = \pi s \prod_{k=1}^{\infty} \left(1 - \frac{s^2}{k^2}\right) $$
+This was derived on my account on 13th June using Fourier Series
+$$ \Gamma(s)\Gamma(-s) =   \frac{1}{-s^2} \left( \prod_{k=1}^{\infty} 1- \frac{s^2}{k^2} \right)^{-1} = \frac{1}{-s^2} \times \frac{\pi s}{\sin(\pi s)} $$
+$$ \Gamma(s)\Gamma(-s) = \frac{1}{-s} \times \frac{\pi}{\sin(\pi s)} $$
+$$ \Gamma(s) \times -s \Gamma(-s) = \frac{\pi}{\sin(\pi s)} $$
+We know that $n\Gamma(n) = \Gamma(n+1)$. This gives us our desired result
+$$ \Gamma(s)\Gamma(1-s) = \frac{\pi}{\sin(\pi s)} $$
+This is known as Euler's Reflection Formula, We can use it to solve questions like the one given here
+$$ \sum_{x=1}^{1729} \Gamma\left( \frac{1+2x}{2}\right)\Gamma \left( \frac{1-2x}{2}\right) $$
+Put your answers in the comments let's see who can do this ;)
+\newpage
+$$ \Gamma(s)\Gamma(1-s) = \frac{\pi}{\sin(\pi s)}$$
+}
+\end{document}
+

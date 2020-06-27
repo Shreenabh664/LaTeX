@@ -1,0 +1,49 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{cancel}
+\title{}
+\begin{document}
+
+\maketitle
+\pagecolor{black}
+\textcolor{white}{
+\begin{center}
+Gauss' Representation of $\Gamma(s)$
+$$\Gamma(s) = \lim_{n \to \infty} \left(\frac{n^s}{s} \prod_{k=1}^{n} \frac{k}{s+k}  \right)$$
+Swipe For EZ Proof \textcolor{red}{$\Rightarrow$}
+\end{center}
+\newpage
+Let's start with an integral $S_n$ defined as
+$$ S_n = \int_0^n t^{s-1} \left( 1 - \frac{t}{n} \right)^n \,dt $$
+Let's see what happens when we take the limit as $n \to \infty$
+$$ \lim_{n \to \infty} S_n = \lim_{n\to \infty} \int_0^n t^{s-1} \left(1- \frac{t}{n} \right)^n \,dt $$
+We can bring the limit inside the integral as follows
+$$ \lim_{n\to \infty} S_n = \int_0^{\infty} t^{s-1} \lim_{n\to \infty} \left( 1- \frac{t}{n} \right)^n \,dt $$
+The limit inside is the limit definition of $e^{-t}$, This means
+$$ \lim_{n \to \infty} S_n = \int_0^{\infty} t^{s-1} e^{-t} \,dt = \Gamma(s) $$
+Notice how all we did was use the definition of the gamma function. \medskip{} \newline \medskip{}  Now we proceed by trying to find a closed form representation of $S_n$.
+$$S_n = \int_0^n t^{s-1} \left( 1- \frac{t}{n} \right)^n \,dt $$
+We can use integration by parts here, we'll be integrating $t^{s-1}$ and integrating the other term. Let's just see where it takes us
+\newpage
+$$S_n = \int_0^n t^{s-1} \left( 1- \frac{t}{n} \right)^n \,dt = \Bigg[\left( 1 -\frac{t}{n}\right)^n \frac{t^s}{s}\Bigg]_0^n + \frac{n}{ns} \int_0^n t^s \left( 1 - \frac{t}{n} \right)^{n-1} \,dt $$
+Plugging in the boundaries, we get
+$$S_n = \frac{n}{ns} \int_0^n t^s \left( 1 - \frac{t}{n} \right)^{n-1} \,dt$$
+This is after applying integration by parts once. My spidey senses are telling me to do what we just did, again. We notice that this is very similar to the original integral, so let's apply integration by parts and integrate $t^s$ and differentiate the other term
+$$S_n = \frac{n}{ns}\int_0^n t^s \left( 1- \frac{t}{n} \right)^{n-1} \,dt = \frac{n}{ns} \times \frac{(n-1)}{n(s+1)} \int_0^n \left( 1 - \frac{t}{n} \right)^{n-2} t^{s+1} \,dt $$
+This is after applying integration by parts twice. Something pretty cool is happening here and we see that the exponent on $(1 -t/n)$ keeps decreasing by one everytime we apply integration by parts. After applying it once, we had $n-1$ in the exponent. After applying it twice we had $n-2$. So if we apply it $n$ times we'd get $n-n$ in the exponent. That's 0 !(exclamation, not factorial). Let's notice what happens to the exponent of $t^{s-1}$. Applying IBP once gives $t^s$. Applying it twice gives $t^{s+1}$. After $n$ applications we'd get $t^{s+n-1}$. We could prove this all using induction but assuming the pattern continues, we get
+$$S_n = \frac{n}{ns} \times \frac{(n-1)}{n(s+1)} \times \frac{(n-2)}{n(s+2)} \cdots \frac{1}{n(s+n-1)} \int_0^{n} t^{s+n-1} \,dt$$
+\newpage
+The integral we have now is a very simple power rule integral
+$$ \int_0^{n} t^{s+n-1} \,dt = \frac{n^{s+n}}{s+n} = \frac{n^s n^n}{s+n}
+$$
+Now, we finally have our expression for $S_n$ which simplifies to
+$$ S_n = \frac{n}{\cancel{n}s} \times \frac{(n-1)}{\cancel{n}(s+1)} \times \frac{(n-2)}{\cancel{n}(s+2)} \cdots \frac{1}{\cancel{n}(s+n-1)} \times \frac{n^s \cancel{n^n}}{s+n}= \frac{n^s}{s} \prod_{k=1}^n \frac{k}{s+k} $$
+$$S_n = \frac{n^s}{s} \prod_{k=1}^n \frac{k}{s+k} $$
+Now comes the cool part, remember when we took the limit as $n \to \infty$? Taking that limit for $S_n$ gave us $\Gamma(s)$. We can do the same here
+$$ \lim_{n\to\infty} S_n = \Gamma(s) = \lim_{n\to\infty} \left(\frac{n^s}{s} \prod_{k=1}^{n} \frac{k}{s+k}\right)  $$
+This is known as Gauss' Representation of $\Gamma(s)$. Very elegant! Make sure to like this post and share it around if you found it interesting
+\newpage
+$$ \Gamma(s) = \lim_{n \to \infty} \left(\frac{n^s}{s} \prod_{k=1}^{n} \frac{k}{s+k}  \right) $$
+}
+\end{document}

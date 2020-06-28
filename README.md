@@ -1,6 +1,6 @@
 # LaTeX
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-4-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 <p align="center"> <img src="https://github.com/Shreenabh664/LaTeX/blob/master/Open%20LaTeX%20Project.png?raw=true"> </p>
@@ -29,6 +29,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="http://shreenabh.com"><img src="https://avatars3.githubusercontent.com/u/62369422?v=4" width="100px;" alt=""/><br /><sub><b>Shreenabh Agrawal</b></sub></a><br /><a href="#ideas-Shreenabh664" title="Ideas, Planning, & Feedback">🤔</a> <a href="https://github.com/Shreenabh664/LaTeX/commits?author=Shreenabh664" title="Code">💻</a> <a href="https://github.com/Shreenabh664/LaTeX/commits?author=Shreenabh664" title="Documentation">📖</a> <a href="#design-Shreenabh664" title="Design">🎨</a> <a href="#maintenance-Shreenabh664" title="Maintenance">🚧</a> <a href="https://github.com/Shreenabh664/LaTeX/pulls?q=is%3Apr+reviewed-by%3AShreenabh664" title="Reviewed Pull Requests">👀</a></td>
     <td align="center"><a href="https://github.com/Nanu00"><img src="https://avatars3.githubusercontent.com/u/66585423?v=4" width="100px;" alt=""/><br /><sub><b>Shantanu Deshmukh</b></sub></a><br /><a href="#maintenance-Nanu00" title="Maintenance">🚧</a> <a href="https://github.com/Shreenabh664/LaTeX/pulls?q=is%3Apr+reviewed-by%3ANanu00" title="Reviewed Pull Requests">👀</a></td>
     <td align="center"><a href="https://github.com/somuteja"><img src="https://avatars0.githubusercontent.com/u/48980007?v=4" width="100px;" alt=""/><br /><sub><b>somuteja</b></sub></a><br /><a href="https://github.com/Shreenabh664/LaTeX/commits?author=somuteja" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/joebarranquilla"><img src="https://avatars2.githubusercontent.com/u/67466040?v=4" width="100px;" alt=""/><br /><sub><b>Jose Bedoya Villegas</b></sub></a><br /><a href="https://github.com/Shreenabh664/LaTeX/commits?author=joebarranquilla" title="Code">💻</a></td>
   </tr>
 </table>
 

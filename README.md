@@ -13,6 +13,7 @@ We would love to share our code as templates with you, as long as you recognise 
     <img src="https://img.shields.io/github/license/Shreenabh664/LaTeX">
     <img src="https://img.shields.io/github/languages/top/Shreenabh664/LaTeX">
     <img src="https://img.shields.io/github/all-contributors/Shreenabh664/LaTeX">
+    <img src="https://img.shields.io/github/v/release/Shreenabh664/LaTeX">
 </p>
 
 ## Contributors ✨

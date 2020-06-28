@@ -18,6 +18,16 @@
         "maintenance",
         "review"
       ]
+    },
+    {
+      "login": "Nanu00",
+      "name": "Shantanu Deshmukh",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/66585423?v=4",
+      "profile": "https://github.com/Nanu00",
+      "contributions": [
+        "maintenance",
+        "review"
+      ]
     }
   ],
   "contributorsPerLine": 7,

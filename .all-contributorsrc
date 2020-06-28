@@ -28,6 +28,15 @@
         "maintenance",
         "review"
       ]
+    },
+    {
+      "login": "somuteja",
+      "name": "somuteja",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/48980007?v=4",
+      "profile": "https://github.com/somuteja",
+      "contributions": [
+        "code"
+      ]
     }
   ],
   "contributorsPerLine": 7,

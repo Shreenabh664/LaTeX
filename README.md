@@ -1,6 +1,6 @@
 # LaTeX
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-5-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 <p align="center"> <img src="https://github.com/Shreenabh664/LaTeX/blob/master/Open%20LaTeX%20Project.png?raw=true"> </p>
@@ -31,6 +31,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/somuteja"><img src="https://avatars0.githubusercontent.com/u/48980007?v=4" width="100px;" alt=""/><br /><sub><b>somuteja</b></sub></a><br /><a href="https://github.com/Shreenabh664/LaTeX/commits?author=somuteja" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/joebarranquilla"><img src="https://avatars2.githubusercontent.com/u/67466040?v=4" width="100px;" alt=""/><br /><sub><b>Jose Bedoya Villegas</b></sub></a><br /><a href="https://github.com/Shreenabh664/LaTeX/commits?author=joebarranquilla" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/mathnovus"><img src="https://avatars1.githubusercontent.com/u/67503724?v=4" width="100px;" alt=""/><br /><sub><b>mathnovus</b></sub></a><br /><a href="https://github.com/Shreenabh664/LaTeX/commits?author=mathnovus" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/CreativeMath"><img src="https://avatars2.githubusercontent.com/u/67472507?v=4" width="100px;" alt=""/><br /><sub><b>CreativeMath</b></sub></a><br /><a href="https://github.com/Shreenabh664/LaTeX/commits?author=CreativeMath" title="Code">💻</a></td>
   </tr>
 </table>
 

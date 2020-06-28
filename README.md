@@ -1,7 +1,5 @@
 # LaTeX
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-6-orange.svg?style=flat-square)](#contributors-)
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
+
 
 <p align="center"> <img src="https://github.com/Shreenabh664/LaTeX/blob/master/Open%20LaTeX%20Project.png?raw=true"> </p>
 
@@ -14,7 +12,7 @@ We would love to share our code as templates with you, as long as you recognise 
 <p align="center"> 
     <img src="https://img.shields.io/github/license/Shreenabh664/LaTeX">
     <img src="https://img.shields.io/github/languages/top/Shreenabh664/LaTeX">
-    <img src="https://img.shields.io/github/contributors/Shreenabh664/LaTeX">
+    <img src="https://img.shields.io/github/all-contributors/Shreenabh664/LaTeX">
 </p>
 
 ## Contributors ✨

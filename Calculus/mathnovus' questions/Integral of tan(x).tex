@@ -1,0 +1,75 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\usepackage{mathptmx}
+\usepackage{t1enc}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usetikzlibrary{decorations.markings}
+\pagecolor{black}
+\color{white}
+
+\begin{document}
+\begin{center}
+ \Huge
+ \begin{equation}
+  \int\tan{(x)} \text{ $dx$} \nonumber   
+ \end{equation}
+
+ \end{center}
+\begin{center}
+\newline
+\newline
+ \Huge Swipe For Solution. 
+ \end{center}
+\begin{itemize}
+\centering \color{red}\Huge \item $\Rightarrow$  
+\end{itemize}
+\newpage
+\normalsize
+We can make this easier solve by breaking down tangent of x into functions we can work with.
+\begin{eqnarray}
+\sin{x} &=& \frac{opp}{hyp}\nonumber \\
+\cos{x} &=& \frac{adj}{hyp} \nonumber
+\end{eqnarray}
+If we take the ratio between sine and cosine of x we see that $\frac{\sin{x}}{\cos{x}}$ is equal to $\frac{\frac{opp}{hyp}}{\frac{adj}{hyp}}$ which by further simplification is equivalent to $\frac{opp}{adj}$ which is why
+\begin{equation}
+    \frac{\sin{x}}{\cos{x}} = \frac{\frac{opp}{hyp}}{\frac{adj}{hyp}} = \tan{x} \nonumber
+\end{equation}
+Therefore our integral is equivalent to $\int\frac{\sin{x}}{\cos{x}}dx$
+\newpage
+\begin{center}
+$\int\tan{(x)} dx$=$\int\frac{\sin{x}}{\cos{x}}dx$    
+\end{center}
+We can solve this integral with a simple u sub.
+Let u be equal to $\cos{x}$ then the following is obvious.
+
+\begin{eqnarray}
+du &=& -\sin{x}dx \nonumber \\
+-du & = & \sin{x}dx \nonumber
+\end{eqnarray}
+\textit{Our integral becomes}
+\begin{eqnarray}
+\int\tan{(x)} = -1\int\frac{1}{u}du \nonumber \\
+\int\tan{(x)} = -1\ln{|u|} \nonumber
+\end{eqnarray}
+\textit{according to the laws of logarithms we can change our integral to}
+\begin{eqnarray}
+\int\tan{(x)} = \ln{|(u)^-1|} \nonumber\\
+\int\tan{(x)} = \ln{|\frac{1}{u}|}\nonumber\\
+\int\tan{(x)} = \ln{|\frac{1}{\cos{x}}|}\nonumber\\
+\int\tan{(x)} =  \ln{|\sec{x}|}+c \nonumber
+\end{eqnarray}
+Almost forgot the + c :0
+\newpage
+\Huge
+\begin{equation}
+ \int\tan{(x)} =  \ln{|\sec{x}|}+c \nonumber
+\end{equation}
+
+
+
+
+
+\end{document}

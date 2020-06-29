@@ -1,0 +1,84 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "Shreenabh664",
+      "name": "Shreenabh Agrawal",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/62369422?v=4",
+      "profile": "http://shreenabh.com",
+      "contributions": [
+        "ideas",
+        "code",
+        "doc",
+        "design",
+        "maintenance",
+        "review"
+      ]
+    },
+    {
+      "login": "Nanu00",
+      "name": "Shantanu Deshmukh",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/66585423?v=4",
+      "profile": "https://github.com/Nanu00",
+      "contributions": [
+        "maintenance",
+        "review"
+      ]
+    },
+    {
+      "login": "somuteja",
+      "name": "somuteja",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/48980007?v=4",
+      "profile": "https://github.com/somuteja",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "joebarranquilla",
+      "name": "Jose Bedoya Villegas",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/67466040?v=4",
+      "profile": "https://github.com/joebarranquilla",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "mathnovus",
+      "name": "mathnovus",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/67503724?v=4",
+      "profile": "https://github.com/mathnovus",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "CreativeMath",
+      "name": "CreativeMath",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/67472507?v=4",
+      "profile": "https://github.com/CreativeMath",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "all-about-mathematics",
+      "name": "all-about-mathematics",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/67568613?v=4",
+      "profile": "https://github.com/all-about-mathematics",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "LaTeX",
+  "projectOwner": "Shreenabh664",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}

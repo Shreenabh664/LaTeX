@@ -1,0 +1,73 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\usepackage{t1enc}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usetikzlibrary{arrows}
+\usetikzlibrary{decorations.markings}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{amssymb}
+\usepackage{ragged2e}
+\color{white}
+\definecolor{Velvety Red}{RGB}{124,10,2}
+\definecolor{Chalkboard Green}{RGB}{0,66,37}
+\definecolor{Miscellaneous Blue}{RGB}{0,33,71}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+
+
+\begin{document}
+\pagecolor{Miscellaneous Blue}
+\color{white}
+\Huge
+\begin{center}
+Simple Harmonic Motion
+\end{center}
+\begin{equation}
+    x = a\sin{(\omega T)} \nonumber
+\end{equation}
+\begin{equation}
+    x = a\cos{(\omega T)} \nonumber
+\end{equation}
+\newline\newline
+\begin{center}
+ Swipe For Derivation\end{center}
+ \begin{center}
+  $\Rightarrow$       
+ \end{center}
+
+
+\newpage
+\normalsize
+\noindent Below is an illustration that shows an object starting at a position of maximum amplitude.\newline
+\begin{center}
+ \includegraphics[width = 5cm, height = 10cm, angle = 90]{WhatsApp Image 2020-06-13 at 2.13.49 PM.jpeg}   
+\end{center}
+when we define the amplitude or displacement from the equilibrium position using the circular approach we get: 
+\begin{equation}
+x =  a\cos{(\theta)}   
+\end{equation}
+
+
+\noindent Now as we are using uniform circular motion to describe the simple harmonic motion of the object we can represent theta in terms of angular velocity and time period.
+\begin{equation}
+    \omega = \frac{\theta}{T} \to
+    \omega T = \theta
+\end{equation}
+substituting (2) in (1) gives us:
+\begin{equation}
+    x = a\cos{(\omega T)}\nonumber
+\end{equation}
+Now if the object started it's motion from mean position at time t=0, we can use the cosine wave and move it $\frac{\pi}{2}$ radians or 90 degrees to the right hand side giving us or in other words you are simply taking theta to be the other angle and the variable x is just displacement from the center; we are just defining it in two different ways:
+\begin{equation}
+    x = a\cos{(\omega T-\frac{\pi}{2})}
+\end{equation}
+Since $\sin{(anything)} = \cos{(anything-\frac{\pi}{2})}$, we can rewrite (3) as:
+\begin{equation}
+    x = a\sin{(\omega T)}\nonumber
+\end{equation}
+Integrating these equations with respect to time gives you equations for velocity and if you integrate them twice then you get expressions for acceleration.
+Pretty neat isn't it?
+\end{document}

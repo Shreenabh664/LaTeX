@@ -31,6 +31,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/joebarranquilla"><img src="https://avatars2.githubusercontent.com/u/67466040?v=4" width="100px;" alt=""/><br /><sub><b>Jose Bedoya Villegas</b></sub></a><br /><a href="https://github.com/Shreenabh664/LaTeX/commits?author=joebarranquilla" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/mathnovus"><img src="https://avatars1.githubusercontent.com/u/67503724?v=4" width="100px;" alt=""/><br /><sub><b>mathnovus</b></sub></a><br /><a href="https://github.com/Shreenabh664/LaTeX/commits?author=mathnovus" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/CreativeMath"><img src="https://avatars2.githubusercontent.com/u/67472507?v=4" width="100px;" alt=""/><br /><sub><b>CreativeMath</b></sub></a><br /><a href="https://github.com/Shreenabh664/LaTeX/commits?author=CreativeMath" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/all-about-mathematics"><img src="https://avatars3.githubusercontent.com/u/67568613?v=4" width="100px;" alt=""/><br /><sub><b>all-about-mathematics</b></sub></a><br /><a href="https://github.com/Shreenabh664/LaTeX/commits?author=all-about-mathematics" title="Code">💻</a></td>
   </tr>
 </table>
 

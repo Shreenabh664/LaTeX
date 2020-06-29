@@ -1,0 +1,48 @@
+\documentclass[usenames,dvipsnames]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amsfonts, xcolor, amssymb, amsthm, babel, empheq, graphicx,ragged2e,hyperref,enumitem, yfonts}
+\usepackage[printwatermark]{xwatermark}
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
+\usepackage{tikz}
+\usetikzlibrary{calc,angles,positioning,intersections,quotes,decorations.markings}
+\newcommand{\vsim}{\rotatebox[origin=c]{-90}{$\sim$}}
+\newcommand{\dlim}{\displaystyle \lim}
+\newcommand{\dint}{\displaystyle \int}
+\newcommand{\doint}{\displaystyle \oint}
+\newcommand{\dilog}{\operatorname{Li}_2}
+\newcommand{\cis}[1]{\operatorname{cis}\left({#1}\right)}
+\newcommand{\dprod}{\displaystyle\prod}
+\newcommand{\dsum}{\displaystyle \sum}
+\newcommand{\cycsum}{\sum_{\text{cyc}}}
+\newcommand{\symsum}{\sum_{\text{sym}}}
+\newcommand{\dcycsum}{\displaystyle\cycsum}
+\newcommand{\dsymsum}{\displaystyle\symsum}
+\newcommand{\cycprod}{\prod_{\text{cyc}}}
+\newcommand{\symprod}{\prod_{\text{sym}}}
+\newcommand{\dcycprod}{\displaystyle\cycprod}
+\newcommand{\dsymprod}{\displaystyle\symprod}
+\renewcommand{\r}{\\\\}
+\renewcommand{\vec}{\mathbf}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\leq}{\leqslant}
+\definecolor{page}{HTML}{FCEEC7}
+\RaggedRight
+\pagecolor{page!80}
+
+\title{Problem \#16}
+\author{@integral\_dx}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+Show that if $n \in \mathbb N$, $x_i > 0$ for $i\in \{1,2,\cdots,n\}$, then
+$$\sum_{i=1}^n x_i^n \geq n\prod_{i=1}^n x_i$$
+
+\Large{\text{DM your solution to be featured!}}
+$$\phantom{\boxed{\mbox{\Large{\color{red}\text{Solution}}}}}$$
+\end{document}

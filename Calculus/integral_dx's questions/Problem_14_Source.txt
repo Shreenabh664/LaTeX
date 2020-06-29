@@ -1,0 +1,47 @@
+\documentclass[usenames,dvipsnames]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amsfonts, xcolor, amssymb, amsthm, babel, empheq, graphicx,ragged2e,hyperref,enumitem, yfonts}
+\usepackage[printwatermark]{xwatermark}
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
+\usepackage{tikz}
+\usetikzlibrary{calc,angles,positioning,intersections,quotes,decorations.markings}
+\newcommand{\vsim}{\rotatebox[origin=c]{-90}{$\sim$}}
+\newcommand{\dlim}{\displaystyle \lim}
+\newcommand{\dint}{\displaystyle \int}
+\newcommand{\doint}{\displaystyle \oint}
+\newcommand{\dilog}{\operatorname{Li}_2}
+\newcommand{\cis}[1]{\operatorname{cis}\left({#1}\right)}
+\newcommand{\dprod}{\displaystyle\prod}
+\newcommand{\dsum}{\displaystyle \sum}
+\newcommand{\cycsum}{\sum_{\text{cyc}}}
+\newcommand{\symsum}{\sum_{\text{sym}}}
+\newcommand{\dcycsum}{\displaystyle\cycsum}
+\newcommand{\dsymsum}{\displaystyle\symsum}
+\newcommand{\cycprod}{\prod_{\text{cyc}}}
+\newcommand{\symprod}{\prod_{\text{sym}}}
+\newcommand{\dcycprod}{\displaystyle\cycprod}
+\newcommand{\dsymprod}{\displaystyle\symprod}
+\renewcommand{\r}{\\\\}
+\renewcommand{\vec}{\mathbf}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\leq}{\leqslant}
+\definecolor{page}{HTML}{79FF95}
+\RaggedRight
+\pagecolor{page!60}
+
+\title{Problem \#14}
+\author{@integral\_dx}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+Evaluate $$\Omega = \dint^\infty_0 \dfrac1x \operatorname{arccot}\left(\dfrac{9x^2 + 2x^{-2} + 10}{8}\right)\,dx$$
+
+\Large{\text{DM your solution to be featured!}}
+$$\boxed{\mbox{\Large{\color{red}\text{Solution}}}}$$
+\end{document}

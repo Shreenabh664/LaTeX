@@ -1,0 +1,93 @@
+\documentclass[usenames,dvipsnames]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amsfonts, xcolor, amssymb, amsthm, babel, empheq, graphicx,ragged2e,hyperref,enumitem, yfonts}
+\usepackage[printwatermark]{xwatermark}
+\usepackage[margin=1cm]{geometry}
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
+\usepackage{tikz}
+\usetikzlibrary{calc,angles,positioning,intersections,quotes,decorations.markings}
+\newcommand{\vsim}{\rotatebox[origin=c]{-90}{$\sim$}}
+\newcommand{\dlim}{\displaystyle \lim}
+\newcommand{\dint}{\displaystyle \int}
+\newcommand{\doint}{\displaystyle \oint}
+\newcommand{\dilog}{\operatorname{Li}_2}
+\newcommand{\cis}[1]{\operatorname{cis}\left({#1}\right)}
+\newcommand{\dprod}{\displaystyle\prod}
+\newcommand{\dsum}{\displaystyle \sum}
+\newcommand{\cycsum}{\sum_{\text{cyc}}}
+\newcommand{\symsum}{\sum_{\text{sym}}}
+\newcommand{\dcycsum}{\displaystyle\cycsum}
+\newcommand{\dsymsum}{\displaystyle\symsum}
+\newcommand{\cycprod}{\prod_{\text{cyc}}}
+\newcommand{\symprod}{\prod_{\text{sym}}}
+\newcommand{\dcycprod}{\displaystyle\cycprod}
+\newcommand{\dsymprod}{\displaystyle\symprod}
+\newcommand{\arccot}{\operatorname{arccot}}
+\renewcommand{\r}{\\\\}
+\renewcommand{\vec}{\mathbf}
+\renewcommand{\geq}{\geqslant}
+\renewcommand{\leq}{\leqslant}
+\definecolor{page}{HTML}{ADFBFF}
+\RaggedRight
+\pagecolor{page!60}
+
+\title{Problem \#15}
+\author{@integral\_dx}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\noindent\hspace{0.1\textwidth}\fbox{\makebox[0.8\textwidth][c]{%
+    \begin{minipage}[t][40em][t]{0.8\textwidth}
+        \textbf{Problem:} 
+        
+        Factorise $a^3(b^2 - c^2) + b^3 (a^2 - c^2) + c^3 (a^2 - b^2)$.
+        
+        \textbf{Solution:} 
+        
+        Let $f(a, b, c) = a^3(b^2 - c^2) + b^3 (a^2 - c^2) + c^3 (a^2 - b^2)$.
+        
+        Consider $f(a, -b, c)$. 
+        
+        $$f(a,-b,c) = a^3(b^2 - c^2) + b^3(c^2 - a^2) + c^3(a^2 - b^2)$$
+        
+        $f(a, -b, c)$ is a homogeneous polynomial of degree 5.
+        
+        Let $g(a, b, c) = f(a, -b, c)$.
+        
+        Consider $g(b, b, c)$.
+        
+        $$g(b, b, c) = b^3(b^2 - c^2) + b^3(c^2 - b^2) + c^3(b^2 - b^2) = 0$$
+        
+        By factor theorem, $(a - b)$ is a factor of $g(a, b, c)$.
+        
+        Because $g(a, b, c)$ is homogeneous, $(b - c)$ and $(c - a)$ are also factors.
+        
+        Now, $g(a, b, c) = (a - b)(b - c)(c - a)Q(a, b, c)$.
+        
+        If the $Q(a, b, c)$ is the product of two linear factors, then there must be another linear factor because $g(a,b,c)$ is homogeneous. Therefore, $Q(a, b, c)$ must be a linear combination of all homogeneous polynomials of degree 2.
+        
+        Let $Q(a,b,c) = \lambda_1 (a^2 + b^2 + c^2) + \lambda_2 (ab + bc + ca)$.
+        
+        Therefore, $g(a, b, c) = (a - b)(b - c)(c - a)(\lambda_1 (a^2 + b^2 + c^2) + \lambda_2 (ab + bc + ca))$.
+        
+        Substituting $(a,b,c) = (1,2,3)$ and $(a,b,c)=(1,0,-1)$ respectively, we have
+        
+        $$\begin{cases}-22 = 2(14\lambda_1 + 11\lambda_2)\\-2 = -2(2\lambda_1 - \lambda_2)\end{cases}$$
+        
+        Solving gives $(\lambda_1, \lambda_2) = (0, -1)$.
+        
+        Therefore,
+        $g(a, b, c) = -(a - b)(b - c)(c - a)(ab + bc + ca)$
+        
+        Because $g(a, b, c) = f(a, -b, c)$,
+        $$f(a, b, c) = -(a + b)(-b - c)(c - a)(-ab - bc + ca)$$
+        
+        Simplifying gives
+        $$\boxed{f(a, b, c) = (a + b)(b + c)(c - a)(ac - cb - ba)}$$
+    \end{minipage}}} 
+\end{document}

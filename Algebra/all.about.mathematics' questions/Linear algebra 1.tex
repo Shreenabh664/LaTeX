@@ -1,0 +1,94 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usepackage[T1]{fontenc}
+\usepackage{pagecolor}
+\usepackage{amssymb}
+\usepackage{lmodern}
+\usepackage{mathtools, nccmath}
+\usepackage{courier}
+\usepackage[overload]{empheq}
+\usepackage[inline, shortlabels]{enumitem}
+\usepackage{amsmath}
+\usepackage{mathtools} 
+\definecolor{myyellow}{RGB}{225,225,100}
+\definecolor{myred}{RGB}{220,100,100}
+\definecolor{mygreen}{RGB}{120,225,120}
+\definecolor{myblue}{RGB}{100,200,255}
+\definecolor{mypurple}{RGB}{200,140,255}
+\definecolor{myorange}{RGB}{255,150,50}
+\color{white}
+\pagecolor{black}
+\title{Introduction to Linear algebra \#1}
+\author{@all.about.mathematics}
+
+
+\begin{document}
+\maketitle
+\large
+\section{Introduction}
+This new series of posts is designed to introduce concepts in linear algebra with some problems and solutions! 
+\newline In this post, we review the very basics of linear algebra, including some \textcolor{myyellow}{properties of matrices, elementary row operations and elementary matrices}
+
+\newpage
+\section{Properties of matrices}
+\textcolor{myyellow}{Theorem 1: If $A$ is invertible, then so is $adj \:A$ }
+\medskip
+
+\noindent{Proof: We start with the formula } 
+\begin{equation}
+A \:(adj\:A)= (\det A)\: I
+\end{equation}
+Since $\exists A^{-1}\iff \det A \neq 0$, we divide both sides of (1) by $\det A$
+$$\left(\frac{1}{\det A}A\right)(adj \: A)=I$$
+Therefore, $\left(\frac{1}{\det A}A\right)$ is the inverse of $adj \: A$.
+\medskip
+
+\noindent \textcolor{myyellow}{Theorem 2: If $\exists A^{-1}, ({A^T})^{-1}=({A^{-1}})^T$}
+\medskip
+
+\noindent{Proof: $$A^{-1} A=I\implies (A^{-1} A)^T=I$$
+Since $(BC)^T=C^TB^T$, 
+$$\implies A^T ({A^{-1}})^T=I\implies ({A^{-1}})^T=({A^T})^{-1}$$}
+
+\newpage
+\section{Elementary row operations}
+There are 3 types of elementary row operations (EROs):
+\medskip
+
+\noindent{\textcolor{myred}{Type I: Swapping row $i$ and row $j$}}
+
+\noindent{This is expressed as \textcolor{myred}{$\mathbf{r}_i\longleftrightarrow\mathbf{r}_j\:,\:i\neq j$}}
+
+\noindent{The inverse of this operation is \textcolor{myred}{itself}, and applying this operation on a matrix multiplies it's determinant by \textcolor{myred}{$-1$}}
+\medskip
+
+\noindent{\textcolor{mygreen}{Type II: Multiplying row $i$ by a nonzero constant $k$}}
+
+\noindent{This is expressed as \textcolor{mygreen}{$k\mathbf{r}_i\longrightarrow\mathbf{r}_i\:,\:k\neq 0$}}
+
+\noindent{The inverse of this operation is \textcolor{mygreen}{$\frac{1}{k}\mathbf{r}_i\longrightarrow\mathbf{r}_i$}, and applying this operation on a matrix multiplies it's determinant by \textcolor{mygreen}{$k$}}
+\medskip
+
+\noindent{\textcolor{myblue}{Type III: Add row $i$ multiplied by $k$ to row $j$}}
+
+\noindent{This is expressed as \textcolor{myblue}{$k\mathbf{r}_i+r_j\longrightarrow\mathbf{r}_j\:,\:k\neq 0\:,\: i\neq j$}}
+
+\noindent{The inverse of this operation is \textcolor{myblue}{$-k\mathbf{r}_i+r_j\longrightarrow\mathbf{r}_j$}, and applying this operation on a matrix \textcolor{myblue}{does not change its determinant.}}
+\medskip
+
+\noindent{Another way to represent EROs are by \textcolor{mypurple}{elementary matrices}. Let $B$ be a matrix obtained from a square matrix $A$ by applying an ERO. Let $E$ be obtained from $I$ by \textcolor{mypurple}{applying the same ERO}. Then \textcolor{mypurple}{$B=EA$}, and $E$ is the elementary matrix representing such an ERO. }
+
+\medskip
+
+\noindent{\textcolor{myorange}{Important theorem:}
+
+\noindent{We can turn square matrix $A$ into $I$ with EROs $\implies \exists A^{-1}$} }
+
+\medskip
+
+\noindent{Proof: Suppose we apply the EROs $e_1, e_2, \cdots, e_n$ to turn $A$ into $I$. Let $E_1, E_2, \cdots, E_n$ be the elementary matrices that represent the EROs respectively. Then we have}
+$$E_n\cdots E_2 \:E_1\: A=I$$
+$$\implies A^{-1}= E_n\cdots E_2 \:E_1\: $$
+\end{document}
+

@@ -1,0 +1,37 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usepackage[T1]{fontenc}
+\usepackage{pagecolor}
+\usepackage{amssymb}
+\usepackage{lmodern}
+\usepackage{mathtools, nccmath}
+\usepackage{courier}
+\usepackage[overload]{empheq}
+\usepackage[inline, shortlabels]{enumitem}
+\usepackage{amsmath}
+\usepackage{mathtools} 
+\color{white}
+\title{Solution to Number Theory \# 1}
+\author{@all.about.mathematics}
+
+
+\pagecolor{black}
+\begin{document}
+\maketitle
+\section{Problem}
+Let $S\subset\mathbb{N}$ such that $|S|=n$. Prove that $\exists A\subseteq S$ such that the sum of all elements in $A$ are divisible by $n$.
+\section{Solution}
+Let $S=\{a_1,a_2,\cdots,a_n\}$. 
+Then define the following sums: $$S_1=a_1$$
+$$S_2=a_1+a_2$$
+$$\vdots$$
+$$S_n=a_1+a_2+\cdots+a_n$$
+\subsection{Case 1}
+If one of the above sums are divisible by $n$, then the claim is proved in this case.
+\subsection{Case 2}
+If none of the sums are divisible by $n$, then, by the Pigeonhole Principle, at least 2 of the sums must have the same remainder when divided by $n$. This implies that we can pick 2 sums $S_b$ and $S_c$  with $b>c$ such that 
+$$S_b-S_c=a_c+1+\cdots+a_b\equiv0(mod\:n)$$
+Therefore the claim is proved in this case.
+
+\end{document}

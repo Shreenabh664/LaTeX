@@ -1,0 +1,49 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usepackage[T1]{fontenc}
+\usepackage{pagecolor}
+\usepackage{amssymb}
+\usepackage{lmodern}
+\usepackage{mathtools, nccmath}
+\usepackage{courier}
+\usepackage[overload]{empheq}
+\usepackage[inline, shortlabels]{enumitem}
+\usepackage{amsmath}
+\usepackage{mathtools} 
+\color{white}
+\title{Solution to Number theory \#2}
+\author{@all.about.mathematics}
+
+
+\pagecolor{black}
+\begin{document}
+\maketitle
+\section{Problem}
+\noindent\fbox{%
+    \parbox{\textwidth}{%
+        Is there a power of 2 ($>8$) such that that its digits can be rearranged to form another power of 2? (zeros are not allowed in leading digits, e.g. 032 is not allowed)
+    }%
+}
+\section{solution}
+We list out some simple and obvious facts here to help us with the problem:
+
+1. Rearranging digits does not change the total number of digits.
+
+2. At most 4 consecutive powers of 2 can have the same number of digits.
+
+3. A number is equal to its digit sum modulo 9.
+
+\noindent{Using these, we rephrase the question:}
+
+\noindent\fbox{%
+    \parbox{\textwidth}{%
+    Is there a power of 2 such that there is another power of 2 with the same number of digits and the same remainder modulo 9?
+    }%
+}
+
+Observing the remainders modulo 9 of some powers of 2, we conjecture that the remainders repeat themselves every 6 powers.
+$$\because 64\equiv1 \mod 9$$
+$$\therefore 2^{n+6}\equiv2^n\times 64\equiv 2^n \mod 9$$
+Since the remainders modulo 9 repeat themselves every 6 powers and there can only be at most 4 powers of 2 can have the same digits, the answer to the question is NO.
+\end{document}

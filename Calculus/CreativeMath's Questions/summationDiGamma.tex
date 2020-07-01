@@ -1,0 +1,51 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{amsmath}
+\title{}
+
+\begin{document}
+\maketitle
+\pagecolor{black}
+\textcolor{white}{
+\begin{center}
+    An Interesting Summation\\ 
+    \smallskip{}
+    {\tiny Without Complex Analysis!}
+    $$\sum_{n=-\infty}^{\infty} \frac{1}{n^2+a^2} = \frac{\pi \coth(a \pi)}{a}$$
+    Swipe For EZ Derivation \textcolor{red}{$\Rightarrow$}
+\end{center}
+\newpage
+First we factor the expression in the denominator as 
+$$\frac{1}{n^2+a^2} = \frac{1}{(n+ai)(n-ai)} = \frac{1}{2ai}\left( \frac{1}{n-ai} - \frac{1}{n+ai}\right)$$
+$$ \sum_{n=1}^{\infty} \frac{1}{n^2+a^2} = \frac{1}{2ai} \left( \sum_{n=1}^{\infty} \frac{1}{n-ai} - \frac{1}{n+ai} \right) $$
+We can evaluate the inner summation by considering $\psi(1+ai)$ and $\psi(1-ai)$
+\begin{equation}
+    \psi(1+ai) = -\gamma + \sum_{n=1}^{\infty} \frac{1}{n} - \frac{1}{n+ai} 
+\end{equation}
+\begin{equation}
+    \psi(1-ai) = -\gamma + \sum_{n=1}^{\infty} \frac{1}{n} - \frac{1}{n-ai}
+\end{equation}
+Doing (2) $-$ (1) gives us 
+$$ \psi(1+ai) - \psi(1-ai) = \sum_{n=1}^{\infty} \frac{1}{n-ai} - \frac{1}{n+ai}$$
+Using the functional equation (derived last post)
+$$ \psi(1+ai) = \psi(ai) + \frac{1}{ai} $$
+$$ \sum_{n=1}^{\infty} \frac{1}{n-ai} - \frac{1}{n+ai} = \frac{1}{ai} + \psi(ai) - \psi(1-ai) $$
+\newpage
+$$ \sum_{n=1}^{\infty} \frac{1}{n-ai} - \frac{1}{n+ai} = \frac{1}{ai} + \psi(ai) - \psi(1-ai) $$
+Using the reflection formula (derived last post), we would then have 
+$$ \sum_{n=1}^{\infty} \frac{1}{n-ai} - \frac{1}{n+ai} = \frac{1}{ai} - \pi \cot(a\pi i)$$
+Note the negative sign being there because the original reflection formula says $$\psi(1-x) - \psi(x) = \pi \cot(\pi x)$$
+Going back to the original sum, we get 
+$$ \sum_{n=1}^{\infty} \frac{1}{n^2+a^2} = \frac{1}{2ai} \left( \sum_{n=1}^{\infty} \frac{1}{n-ai} - \frac{1}{n+ai} \right) = \frac{1}{2ai} \left( \frac{1}{ai} - \pi \cot(a\pi i) \right)$$
+Recalling $\coth(x) = i\cot(ix)$
+$$ \sum_{n=1}^{\infty} \frac{1}{n^2+a^2} = \frac{1}{2ai} \left( \frac{1}{ai} - \frac{\pi \coth(a\pi)}{i} \right) = -\frac{1}{2a^2}+ \frac{\pi \coth(a\pi)}{2a}$$
+$$ \sum_{n=-\infty}^{\infty} \frac{1}{n^2+a^2} = \frac{1}{a^2} + 2 \sum_{n=1}^{\infty} \frac{1}{n^2+a^2} = \frac{1}{a^2} + 2\left( -\frac{1}{2a^2}+ \frac{\pi \coth(a\pi)}{2a} \right) $$
+$$ \sum_{n=-\infty}^{\infty} \frac{1}{n^2+a^2} = \frac{\pi \coth(a \pi)}{a} $$
+\newpage
+    $$\sum_{n=-\infty}^{\infty} \frac{1}{n^2+a^2} = \frac{\pi \coth(a \pi)}{a}$$
+    \begin{center}
+       \large{For more, Follow}
+    \end{center}
+}
+\end{document}

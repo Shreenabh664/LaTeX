@@ -1,0 +1,38 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[dvipsnames]{xcolor}
+\title{}
+
+
+\begin{document}
+
+\maketitle
+\pagecolor{black}
+\textcolor{white}{
+\begin{center}
+    The Di-Gamma Function 
+    $$ \psi(s) = \frac{\Gamma'(s)}{\Gamma(s)} $$
+    $$ \psi(s) = -\gamma + H_{s-1} $$
+    Swipe For Derivations \textcolor{red}{$\Rightarrow$}
+\end{center}
+\newpage
+The Di-Gamma function is defined as the derivative of $\ln(\Gamma(s))$
+$$ \psi(s) = \frac{d}{dx} \ln(\Gamma(s)) = \frac{\Gamma'(s)}{\Gamma(s)} $$
+To obtain an expression for it, let's use the Weirstrass Representation of $\Gamma(s)$
+$$\Gamma(s) = \frac{e^{-\gamma s}}{s} \prod_{k=1}^{\infty} e^{s/k} \bigg( 1+ \frac{s}{k}\bigg)^{-1}$$
+$$ \ln(\Gamma(s)) = -\gamma s - \ln(s) + \sum_{k=1}^{\infty} \frac{s}{k} - \ln \bigg( 1+\frac{s}{k} \bigg) $$
+We can differentiate with respect to $s$ on both sides now 
+$$ \frac{\Gamma'(s)}{\Gamma(s)} = -\gamma - \frac{1}{s} + \sum_{k=1}^{\infty} \frac{1}{k} - \frac{\frac{1}{k}}{1+\frac{s}{k}} = -\gamma - \frac{1}{s} + \sum_{k=1}^{\infty} \frac{1}{k} - \frac{1}{k+s} $$
+$$ \frac{\Gamma'(s)}{\Gamma(s)} = -\gamma + \sum_{k=1}^{\infty} \frac{1}{k} - \frac{1}{k+s-1} $$
+Notice that the $\frac{1}{s}$ is in the summation now (at $k=1$)
+$$ \psi(s) = -\gamma + \sum_{k=0}^{\infty} \frac{1}{k+1} - \frac{1}{k+s} $$
+$$\psi(s) = -\gamma + H_{s-1}$$
+\newpage
+    $$ \psi(s) = \frac{\Gamma'(s)}{\Gamma(s)} $$
+    $$ \psi(s) = -\gamma + H_{s-1} $$
+    \begin{center}
+        For more, Follow 
+    \end{center}
+}
+
+\end{document}

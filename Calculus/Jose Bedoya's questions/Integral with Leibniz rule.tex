@@ -1,0 +1,57 @@
+\documentclass{article}
+\usepackage{color}
+\usepackage{bigints}
+\usepackage[italicdiff]{physics}
+\color{white}
+\definecolor{Green}{RGB}{0,66,37}
+\begin{document}
+\pagecolor{Green}
+\title{Solution to Mathemaddict\textsc{\char13}s Problem}
+\author{Jose Bedoya}
+\maketitle
+\section{Question}
+{\LARGE
+$$I = \bigintss_{1}^{\infty} \frac{x^2-1}{x^4 \ln x}\, dx$$
+}
+\section{Solution}
+\vspace{5mm}
+{\Large
+Consider the substitution $x \rightarrow \frac{1}{u}$
+$$ I = \bigintsss_{0}^{1} \frac{u^2-1}{\ln u}\,du$$
+
+\vspace{5mm}
+Let
+$$ B\left(\alpha \right) = \bigintsss_{0}^{1} \frac{x^{\alpha} -1}{\ln x}\, dx$$
+
+\vspace{3mm}
+Notice our desire integral is $B\left(2\right)$.
+\newpage
+Differentiate both sides,
+$$\dv{B}{\alpha} = \dv{\alpha}\bigintsss_{0}^{1} \frac{x^{\alpha}-1}{\ln x}\, dx$$
+
+\vspace{3mm}
+By the Leibniz rule for integrals
+$$\dv{B}{\alpha}=\bigintsss_{0}^{1}\pdv{\alpha}\frac{x^{\alpha}-1}{\ln x}\, dx$$
+
+\vspace{3mm}
+Therefore,
+$$\dv{B}{\alpha}=\bigintsss_{0}^{1} x^{\alpha}\,dx$$
+$$=\frac{1}{\alpha+1}$$
+
+\vspace{3mm}
+Integrating both sides
+$$B\left(\alpha\right)=\bigintsss \frac{1}{\alpha+1}\,d\alpha$$
+$$=\ln (\alpha+1)+C$$
+
+\vspace{2mm}
+If you let $\alpha=0$, you will get $C=0$.
+
+\vspace{7mm}
+Therefore,
+}
+
+{\LARGE
+$$I = \bigintss_{1}^{\infty} \frac{x^2-1}{x^4 \ln x}\, dx=\ln3$$
+}
+
+\end{document}

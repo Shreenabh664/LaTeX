@@ -1,0 +1,71 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{amsmath}
+\usepackage{cancel}
+\title{}
+
+\begin{document}
+
+\maketitle
+\pagecolor{black}
+\textcolor{white}{
+\begin{center}
+Di-Gamma Reflection Formula
+$$  \psi(1-s) - \psi(s)  = \pi \cot(\pi s) $$
+And Functional Equation
+$$\psi(s+1) = \psi(s) + \frac{1}{s}$$
+Swipe For \textcolor{red}{TWO} Proofs \textcolor{red}{$\Rightarrow$}
+\end{center}
+\newpage
+\section{First Proof (Reflection Formula)}
+Start off with Euler's Reflection Formula (derived on 17th June) 
+$$\Gamma(s)\Gamma(1-s) = \frac{\pi}{\sin(\pi s)}$$
+Taking the natural log on both sides gives 
+$$\ln(\Gamma(s)) + \ln(\Gamma(1-s)) = \ln(\pi) - \ln(\sin(\pi s))$$
+Differentiating both sides gives 
+$$\frac{\Gamma'(s)}{\Gamma(s)} - \frac{\Gamma '(1-s)}{\Gamma(1-s)} = -\pi \cot(\pi s)$$
+Don't forget to bring out the negative signs due to the chain rule! Since the terms on the left are the definition of the Di-Gamma function, we can say
+$$ \psi(s) - \psi(1-s) = -\pi \cot(\pi s) $$
+Which we can rewrite as 
+$$ \psi(1-s) - \psi(s) = \pi \cot(\pi s) $$
+This is the classic proof, on the next slide I'll show another proof that you can get from playing around with the Mittag-Lefler expansion of the cotangent.
+\newpage
+\section{Second Proof(Reflection Formula)}
+First recall the Mittag-Lefler expansion of the cotangent. I showed and provided a derivation of this on my account on a post on 13th June (3rd slide specifically)
+$$ \pi \cot(\pi z) = \sum_{n=-\infty}^{\infty} \frac{z}{z^2-n^2} = \frac{1}{z} + 2\sum_{n=1}^{\infty} \frac{z}{z^2-n^2} $$
+Let's recall the definition of $\psi(z)$ and $\psi(1-z)$
+\begin{equation}
+    \psi(z) = -\gamma + \sum_{k=0}^{\infty} \frac{1}{k+1} - \frac{1}{k+z}
+\end{equation}
+\begin{equation}
+    \psi(1-z) =- \gamma + \sum_{k=0}^{\infty} \frac{1}{k+1} - \frac{1}{k+1-z}
+\end{equation}
+Doing (2) $-$ (1) yields 
+$$ \psi(1-z) - \psi(z)  = \sum_{k=0}^{\infty} \frac{-1}{k+1-z} + \frac{1}{k+z} $$
+$$ \sum_{k=0}^{\infty} \frac{1}{k+z} = \frac{1}{z} + \sum_{k=1}^{\infty} \frac{1}{k+z} \quad \textbf{and} \quad \sum_{k=0}^{\infty} \frac{-1}{k+1-z} = \sum_{k=1}^{\infty} \frac{-1}{k-z} $$
+$$ \psi(1-z) - \psi(z) = \frac{1}{z}+ \sum_{k=1}^{\infty} \frac{1}{k+z} - \frac{1}{k-z} = \frac{1}{z} + 2\sum_{k=1}^{\infty}\frac{z}{k^2-z^2} = \pi \cot(\pi z)$$
+\newpage
+\section{Functional Equation}
+This one's pretty short and sweet
+$$\psi(z+1) = \psi(z) + \frac{1}{z}$$
+Starting with the definition of $\psi(z+1)$ and $\psi(z)$, we have
+\begin{equation}
+     \psi(z+1) = -\gamma + \sum_{k=1}^{\infty} \frac{1}{k} - \frac{1}{k+z}
+\end{equation}
+\begin{equation}
+    \psi(z) = -\gamma + \sum_{k=1}^{\infty} \frac{1}{k} - \frac{1}{k+z-1}
+\end{equation}
+Doing (3) $-$ (4) yields us 
+$$ \psi(z+1) - \psi(z) = \sum_{k=1}^{\infty} \frac{1}{k+z-1} - \frac{1}{k+z} $$
+This is a telescoping sum so if you write out a few terms you get
+$$\psi(z+1)-\psi(z) = \left( \frac{1}{z} - \cancel{\frac{1}{z+1}} + \cancel{\frac{1}{z+1}}  - \cancel{\frac{1}{z+2}} + \cancel{\frac{1}{z+2}} - \cancel{\frac{1}{z+3}} \cdots \right) = \frac{1}{z}$$
+$$\psi(z+1) = \psi(z) + \frac{1}{z}$$
+\newpage
+\begin{center}
+$$  \psi(1-s) - \psi(s)  = \pi \cot(\pi s) $$
+$$\psi(s+1) = \psi(s) + \frac{1}{s}$$
+For more, Follow 
+\end{center}
+}
+\end{document}

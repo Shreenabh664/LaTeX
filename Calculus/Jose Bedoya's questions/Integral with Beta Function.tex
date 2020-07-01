@@ -1,0 +1,70 @@
+\documentclass{article}
+\usepackage{color}
+\usepackage{bigints}
+\usepackage{amssymb}
+\usepackage[italicdiff]{physics}
+\color{white}
+\definecolor{Blue}{RGB}{0,33,72}
+\begin{document}
+\pagecolor{Blue}
+\title{Solution to Integral Fun\textsc{\char13}s Problem}
+\author{Jose Bedoya}
+\maketitle
+\section{Question}
+{\LARGE
+$$I(\alpha,n)=\bigintss_{0}^{\infty} \frac{\cos \alpha t}{t^n}\,dt$$
+with $\mid n \mid<1$
+}
+\section{Solution}
+{\Large
+Knowing,
+$$\bigintsss_{0}^{\infty}f(t)g(t)\,dt=\bigintsss_{0}^{\infty}\mathcal{L}\{f(t)\}(s)\mathcal{L}^{-1}\{g(t)\}(s)\,ds$$
+
+\vspace{5mm}
+And by choosing
+$$f(t)=\cos(\alpha t)$$
+$$g(t)=\frac{1}{t^n}$$
+we have
+$$\mathcal{L}\{f(t)\}(s)=\frac{s}{s^2+\alpha^2}$$
+$$\mathcal{L}^{-1}\{g(t)\}(s)=\frac{s^{n-1}}{\Gamma(n)}$$
+\newpage
+Substituting on our integral
+$$I(\alpha,n)=\frac{1}{\Gamma(n)}\bigintsss_{0}^{\infty}\frac{s^n}{s^2+\alpha^2}\,ds$$
+
+\vspace{3mm}
+Let $s=\alpha\tan(\theta)$
+$$I(\alpha,n)=\frac{\alpha^{n-1}}{\Gamma(n)}\bigintsss_{0}^{\frac{\pi}{2}}\tan^n(\theta)\,d\theta$$
+$$=\frac{\alpha^{n-1}}{\Gamma(n)}\bigintsss_{0}^{\frac{\pi}{2}}\sin^n(\theta)\cos^{-n}(\theta)\,d\theta$$
+
+\vspace{5mm}
+Recall the definition of the Beta Function
+$$B(x,y)=2\bigintsss_{0}^{\frac{\pi}{2}}\sin^{2x-1}(\theta)\cos^{2y-1}(\theta)\,d\theta$$
+$$=\frac{\Gamma(x)\Gamma(y)}{\Gamma(x+y)}$$
+where $\Gamma(n)=(n-1)$!.
+
+\vspace{5mm}
+Notice, in our integral:
+$$x=\frac{n+1}{2}$$
+$$y=\frac{1-n}{2}$$
+
+\vspace{3mm}
+Therefore,
+$$I(\alpha,n)=\frac{\alpha^{n-1}}{2\Gamma(n)}\Gamma\left(\frac{n+1}{2}\right)\Gamma\left(\frac{1-n}{2}\right)$$
+
+\vspace{3mm}
+Here we can simplify the expression using the reflection property of the Gamma Function
+$$\Gamma(z)\Gamma(1-z)=\frac{\pi}{\sin(\pi z)}$$
+for $z$ not integer.
+
+\vspace{3mm}
+If we let $z=\frac{n+1}{2}$
+$$\Gamma\left(\frac{n+1}{2}\right)\Gamma\left(\frac{1-n}{2}\right)=\frac{\pi}{\sin\left(\frac{\pi(n+1)}{2}\right)}$$
+$$=\pi\sec\left(\frac{\pi n}{2}\right)$$
+
+\vspace{2mm}
+we get
+}
+{\LARGE
+$$I(\alpha,n)=\frac{\pi}{4}\frac{\alpha^{n-1}}{\Gamma(n)}\sec\left(\frac{\pi n}{2}\right)$$
+}
+\end{document}

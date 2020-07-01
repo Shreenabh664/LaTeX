@@ -1,0 +1,49 @@
+\documentclass{article}
+\usepackage{color}
+\usepackage{bigints}
+\usepackage[italicdiff]{physics}
+\color{white}
+\definecolor{Red}{RGB}{124,10,2}
+\begin{document}
+\pagecolor{Red}
+\title{Solution to Calculus with Calvin\textsc{\char13}s Problem}
+\author{Jose Bedoya}
+\maketitle
+\section{Question}
+{\LARGE
+$$I=\bigintss_{0}^{1} \frac{\ln \left(x+1\right)\ln x}{x}\,dx$$
+}
+\section{Solution}
+{\Large
+Knowing,
+$$\ln \left(x+1\right)=\sum_{n=1}^{\infty} \left(-1\right)^{n-1}\frac{x^n}{n}$$
+
+\vspace{3mm}
+We have
+$$I=\sum_{n=1}^{\infty}\frac{\left(-1\right)^{n-1}}{n}\bigintsss_{0}^{1}x^{n-1}\ln x\,dx$$
+
+\vspace{3mm}
+Applying IBP, we get
+$$I=\sum_{n=1}^{\infty}\frac{\left(-1\right)^{n-1}}{n}\left(\frac{x^n\ln x}{n}\Big|_0^1-\frac{1}{n}\bigintsss_{0}^{1}x^{n-1}\,dx\right)$$
+$$=\sum_{n=1}^{\infty}\frac{\left(-1\right)^n}{n^3}$$
+
+\vspace{4mm}
+Let\textsc{\char13}s try to find a closed expression for this sum. We know:
+$$\zeta\left(3\right)=\sum_{n=1}^{\infty}\frac{1}{n^3}$$
+
+\vspace{3mm}
+As you can see, our sum is equal to the even inverse cubes minus the odd ones. So, let\textsc{\char13}s find an expression for the odd ones
+$$\sum_{n=1}^{\infty}\frac{1}{\left(2n+1\right)^3}=\sum_{n=1}^{\infty}\left(\frac{1}{n^3}-\frac{1}{\left(2n\right)^3}\right)$$
+$$=\frac{7\zeta\left(3\right)}{8}$$
+
+\vspace{3mm}
+Therefore,
+$$\sum_{n=1}^{\infty}\frac{\left(-1\right)^n}{n^3}=\sum_{n=1}^{\infty}\left(\frac{1}{\left(2n\right)^3}-\frac{1}{\left(2n+1\right)^3}\right)$$
+
+\vspace{5mm}
+Thus,
+}
+{\LARGE
+$$I=\frac{-3\zeta\left(3\right)}{4}$$
+}
+\end{document}

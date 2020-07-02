@@ -1,0 +1,207 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage[most]{tcolorbox}
+\usepackage{booktabs}
+\usepackage{xparse}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{pstricks,pst-node}
+\pagestyle{empty}
+\newcommand{\diff}[1]{\mathrm{d}#1}
+\newcommand{\me}{\mathrm{e}}
+\tikzset{Arrow Style/.style={text=black, font=\boldmath}}
+\usepackage{cancel}
+\newcommand{\tikzmark}[1]{%
+    \tikz[overlay, remember picture, baseline] \node (#1) {};%
+}
+
+\newcommand*{\XShift}{0.5em}
+\newcommand*{\YShift}{0.5ex}
+
+\NewDocumentCommand{\DrawArrow}{s O{} m m m}{%
+    \begin{tikzpicture}[overlay,remember picture]
+        \draw[->, thick, Arrow Style, #2] 
+                ($(#3.west)+(\XShift,\YShift)$) -- 
+                ($(#4.east)+(-\XShift,\YShift)$)
+        node [midway,above] {#5};
+    \end{tikzpicture}%
+}
+
+
+\tcbset{colback=blue!10!white, colframe=blue!50!black, 
+        highlight math style= {enhanced, %<-- needed for the ’remember’ options
+            colframe=red,colback=red!10!white,boxsep=0pt}
+        }
+\begin{document}
+
+\begin{equation*}
+    I=\int_{0}^{\infty} \frac{\ln{x}}{(1+x^2)(1+x^3)}\,dx
+\end{equation*}
+This may be a long one, but let's get into it. We break up the bounds of integration. 
+\begin{equation*}
+    I=\int_{0}^{1} \frac{\ln{x}}{(1+x^2)(1+x^3)}\,dx+\int_{1}^{\infty} \frac{\ln{x}}{(1+x^2)(1+x^3)}\,dx
+\end{equation*}
+Now we will introduce a substitution $x \rightarrow 1/x$ into the second integral,
+\begin{equation*}
+    \begin{split}
+       &= \int_{0}^{1} \frac{\ln{x}}{(1+x^2)(1+x^3)}\,dx+\int_{1}^{0} \frac{\ln(1/x)}{(1+\left(1/x\right)^2)(1+\left(1/x\right)^3)}\frac{-dx}{x^2} \\
+        &=\int_{0}^{1} \frac{\ln{x}}{(1+x^2)(1+x^3)}\,dx-\int_{0}^{1} \frac{x^3\ln{x}}{(1+x^2)(1+x^3)}\,dx \\
+        &=\int_{0}^{1} \frac{\ln{x}(1-x^3)}{(1+x^2)(1+x^3)}\,dx
+    \end{split}
+    
+\end{equation*}
+We can now perform partial fractional decompostion on the rational multiple of $\ln{x}$ to show that
+\begin{equation*}
+   I=\underbrace{\int_{0}^{1}\frac{x\ln{x}}{1+x^2}\,dx}_{I_1}-\frac{2}{3}\underbrace{\int_{0}^{1} \frac{\ln{x}(2x-1)}{x^2-x+1}\,dx}_{I_2}+\frac{1}{3}\underbrace{\int_{0}^{1}\frac{\ln{x}}{1+x}\,dx}_{I_3} 
+\end{equation*}
+So,
+\begin{equation}
+    \boxed{I=I_1-\frac{2}{3}I_2+\frac{1}{3}I_3}
+\end{equation} \newpage
+Let's begin by solving $I_1$,
+\begin{equation*}
+    I_1=\int_{0}^{1}\frac{x\ln{x}}{1+x^2}\,dx
+\end{equation*}
+We introduce the substitution $u=x^2$,
+\begin{equation*}
+\begin{split}
+    I_1=\frac{1}{2}\int_{0}^{1} \frac{\ln{\sqrt{u}}}{1+u}\,du
+    \\\frac{1}{4}\int_{0}^{1} \frac{\ln{u}}{1+u}&=\end{split}
+\end{equation*}
+We can now integrate by parts,
+
+
+\[
+    \renewcommand{\arraystretch}{1.5}
+    \begin{array}{c @{\hspace*{1.0cm}} c}\toprule
+       D & I \\\cmidrule{1-2}
+      +\ln{u}\tikzmark{Left 1} & \tikzmark{Right 1}\frac{1}{1+u} \\
+      -\frac{1}{u} \tikzmark{Left 2} & \tikzmark{Right 2}\ln(1+u)  \\\bottomrule
+    \end{array}
+\]
+%-----------------------------------------
+\DrawArrow[draw=blue]{Left 1}{Right 2}{$ $}%
+\DrawArrow[draw=red]{Left 2}{Right 2}{$ $}%
+to get \begin{equation*}
+    \begin{split}
+        I_1&= \underbrace{\frac{1}{4}\ln{u}\ln(1+u)\Big|_{0}^{1}}_{=0}-\frac{1}{4}\int_{0}^{1}\frac{\ln(1+u)}{u}\,du
+    \end{split}
+\end{equation*}
+We now let $u=-x$, and have
+\begin{equation*}
+    \begin{split}
+        &=\frac{1}{4}\int_{0}^{-1}\frac{\ln(1-x)}{-x}\,dx\\
+        &=\frac{1}{4}\int_{-1}^{0}\frac{\ln(1-x)}{x}\,dx\\
+        &=\frac{1}{4}\text{Li}_2(-1)=\frac{1}{4}\left(-\frac{\pi^2}{12}\right)=-\frac{\pi^2}{48}
+    \end{split}
+\end{equation*} \newpage
+So,
+\begin{equation}
+    \boxed{I_1=-\frac{\pi^2}{48}}
+\end{equation}
+Now we must calculate $I_2$, which will be slightly more difficult.
+\begin{equation*}
+    I_2=\int_{0}^{1} \frac{\ln{x}(2x-1)}{x^2-x+1}\,dx
+\end{equation*}
+We now once again integrate by parts
+\[
+    \renewcommand{\arraystretch}{1.5}
+    \begin{array}{c @{\hspace*{1.0cm}} c}\toprule
+       D & I \\\cmidrule{1-2}
+      +\ln{x}\tikzmark{Left 1} & \tikzmark{Right 1}\frac{2x-1}{x^2-x+1} \\
+     - \frac{1}{x} \tikzmark{Left 2} & \tikzmark{Right 2}\ln(x^2-x+1)  \\\bottomrule
+    \end{array}
+\]
+%-----------------------------------------
+\DrawArrow[draw=blue]{Left 1}{Right 2}{$ $}%
+\DrawArrow[draw=red]{Left 2}{Right 2}{$ $}%
+\begin{equation*}
+    \begin{split}
+        I_2&=\underbrace{\ln{x}\ln(x^2-x+1)\Big|_{0}^{1}}_{=0}-\int_{0}^{1} \frac{\ln(x^2-x+1)}{x}\,dx \\
+        &=-\int_{0}^{1} \frac{\ln(x^2-x+1)}{x}\,dx 
+    \end{split}
+\end{equation*}
+Lets now factorize the polynomial argument of the logarithm and see what we can do. We notice that
+\begin{equation*}
+    x^2-x+1=0 \implies x=\frac{1}{2}\pm\frac{\sqrt{3}}{2}=e^{\pm i \frac{\pi}{3}}
+\end{equation*}
+So we can factorize the polynomial
+\begin{equation*}
+     x^2-x+1=0=(x-e^{i\frac{\pi}{3}})(x-e^{-i\frac{\pi}{3}})
+\end{equation*} \newpage
+So our integral becomes
+\begin{equation*}
+    \begin{split}
+        I_2&=-\int_{0}^{1} \frac{\ln((x-e^{i\frac{\pi}{3}})(x-e^{-i\frac{\pi}{3}}))}{x}\,dx \\
+        &=-\int_{0}^{1} \frac{\ln(x-e^{i\frac{\pi}{3}})}{x}\,dx-\int_{0}^{1} \frac{\ln(x-e^{-i\frac{\pi}{3}})}{x}\,dx \\ \\
+    \end{split}
+\end{equation*}
+ Let's simplify with some algebra and log properties.
+    \begin{equation*}
+        \begin{split}
+        &=-\int_{0}^{1} \frac{\ln(-e^{i\frac{\pi}{3}}(-e^{-i\frac{\pi}{3}}x+1))}{x}\,dx-\int_{0}^{1} \frac{\ln(-e^{-i\frac{\pi}{3}}(-e^{i\frac{\pi}{3}}x+1))}{x}\,dx\\
+        &=-\int_{0}^{1} \frac{\ln(-e^{-i\frac{\pi}{3}}x+1)}{x}\,dx  -\int_{0}^{1} \frac{\ln(-e^{i\frac{\pi}{3}}x+1)}{x}\,dx-\cancel{{\left[\ln(-e^{-i\frac{\pi}{3}})+\ln(-e^{i\frac{\pi}{3}})\right]\int_{0}^{1}\frac{dx}{x}}} \\
+        &=\int_{1}^{0} \frac{\ln(1-e^{-i\frac{\pi}{3}}x)}{x}\,dx  \int_{1}^{0} \frac{\ln(1-e^{i\frac{\pi}{3}}x)}{x}\,dx
+        \end{split}
+    \end{equation*}
+Where the last term cancels because the coefficient of the integral is 0, as can be shown with logarithm properties. So now let's the substitution $e^{-i\frac{\pi}{3}}x\rightarrow x$ in the first integral and $e^{i\frac{\pi}{3}}x\rightarrow x$ in the second to get
+\begin{equation*}
+    \begin{split}
+        I_2&= \int_{e^{-i\frac{\pi}{3}}}^{0} \frac{\ln(1-x)}{x}\,dx + \int_{e^{i\frac{\pi}{3}}}^{0} \frac{\ln(1-x)}{x}\,dx\\
+        &= \text{Li}_2(e^{i\frac{\pi}{3}})+\text{Li}_2\left(\frac{1}{e^{i\frac{\pi}{3}}}\right)
+    \end{split}
+\end{equation*}
+We can now apply the dilogarithm identity
+\begin{equation*}
+    \text{Li}_2(z)+\text{Li}_2\left(\frac{1}{z}\right)=-\frac{\pi^2}{6}-\frac{1}{2}\ln^2(-z)
+\end{equation*}
+\newpage So 
+\begin{equation*}
+    I_2=-\frac{\pi^2}{6}-\frac{1}{2}\ln^2(-e^{i\frac{\pi}{3}})=-\frac{\pi^2}{6}-\frac{1}{2}\left(-\frac{2i\pi}{3}\right)^2=\frac{\pi^2}{18}
+\end{equation*}
+And we have 
+\begin{equation}
+    \boxed{I_2=\frac{\pi^2}{18}}
+\end{equation}
+ Finally, we evaluate $I_3$ which is the simplest of the 3. 
+ \begin{equation*}
+     I_3=\int_{0}^{1} \frac{\ln{x}}{1+x}\,dx
+ \end{equation*}
+We will once again integrate by parts
+
+\[
+    \renewcommand{\arraystretch}{1.5}
+    \begin{array}{c @{\hspace*{1.0cm}} c}\toprule
+       D & I \\\cmidrule{1-2}
+      +\ln{u}\tikzmark{Left 1} & \tikzmark{Right 1}\frac{1}{1+u} \\
+      -\frac{1}{u} \tikzmark{Left 2} & \tikzmark{Right 2}\ln(1+u)  \\\bottomrule
+    \end{array}
+\]
+%-----------------------------------------
+\DrawArrow[draw=blue]{Left 1}{Right 2}{$ $}%
+\DrawArrow[draw=red]{Left 2}{Right 2}{$ $}%
+ \begin{equation*}
+    \begin{split}
+        I_3&= \underbrace{\ln{u}\ln(1+u)\Big|_{0}^{1}}_{=0}-\int_{0}^{1}\frac{\ln(1+u)}{u}\,du \\
+        &= \int_{1}^{0} \frac{\ln(1+u)}{u}\,du
+    \end{split}
+\end{equation*} \newpage
+Now letting $u=-x$,
+\begin{equation*}
+    &=\int_{-1}^{0}\frac{\ln(1-x)}{x}\,dx=\text{Li}_2(-1)=-\frac{\pi^2}{12}
+\end{equation*}
+And therefore
+\begin{equation}
+    \boxed{I_3=-\frac{\pi^2}{12}}
+\end{equation}
+We can now put everything together from equations (1), (2), (3), and (4) to show 
+\begin{equation*}
+    I=-\frac{\pi^2}{48}-\frac{2}{3}\left(\frac{\pi^2}{18}\right)+\frac{1}{3}\left(-\frac{\pi^2}{12}\right)
+\end{equation*}
+and we have the final result,
+
+\begin{center}
+\tcboxmath{\int_{0}^{\infty} \frac{\ln{x}}{(1+x^2)(1+x^3)}\,dx=-\frac{37 \pi^2}{432}}
+\end{center}
+\end{document}

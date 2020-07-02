@@ -1,0 +1,149 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[utf8]{inputenc}
+\usepackage[utf8]{inputenc}
+\usepackage{dirtytalk}
+\usepackage{bussproofs}
+\usepackage{comment}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{indentfirst}
+\usepackage{amsfonts}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\usepackage{pgfplots}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage[utf8]{inputenc}
+
+\begin{document}
+
+When looking at this problem it seems natural to draw a parallel to the single variable differential equation approach to
+\begin{equation*}
+    \frac{dx}{dt}=Ax, \hspace{0.1cm}x(t_0)=x_0
+\end{equation*} who's solution is given by
+\begin{equation*}
+    x(t)=e^{(t-t_0)A}x_0
+\end{equation*}
+However, this same operation generalizes for differential equations of vectors (as long as the dimensions of all the matrices allows for the multiplication of course). So we also have, 
+\begin{equation*}
+    \frac{d\vec{x}}{dt}=A\vec{x},\hspace{0.1cm} \vec{x}(t_0)=\vec{x}_0
+\end{equation*} who's solution is given by
+\begin{equation*}
+    \vec{x}(t)=e^{(t-t_0)A}\vec{x}_0
+\end{equation*}
+In this case we have $t_0=0$ so we just need to calculate
+\begin{equation*}
+   \vec{x}(t)=e^{At}\begin{bmatrix}
+-2 \\
+1  \\
+4 
+\end{bmatrix}
+\end{equation*}
+But how do we compute $e$ to a matrix?? Well, we can use the power series definition of $e^x$ to create a sum of powers of the matrix that will evaluate to it. So for a square matrix we can see
+\begin{equation*}
+    e^{At}=\sum_{n=0}^{\infty} \frac{t^n}{n!}A^n=I+tA+\frac{t^2}{2!}A^2+...
+\end{equation*} \newpage
+So it seems clear we will need a formula for any power of $A$. We will need to diagonalize A. This is because for any diagonal matrix (say 3$\times$3 in this case) we have 
+\begin{equation*}
+    \begin{bmatrix}
+a_1 & 0 & 0\\
+0 & a_2 & 0 \\
+0 & 0 & a_3
+\end{bmatrix}^n=  \begin{bmatrix}
+a_1^n & 0 & 0\\
+0 & a_2^n & 0 \\
+0 & 0 & a_3^n
+\end{bmatrix}
+\end{equation*}
+So if we write A as a product
+\begin{equation*}
+    A=PDP^{-1}
+\end{equation*} 
+for a diagonal matrix $D$, then
+\begin{equation*}
+    A^n=PD^nP^{-1}
+\end{equation*}
+Lets get to finding eigenvalues and eigenvectors. First, we set
+\begin{equation*}
+    \text{det}{(A-\lambda I_3)}=\begin{vmatrix}
+6-\lambda & 3 & -2\\
+-4 & -1-\lambda & 2 \\
+13 & 9 & -3-\lambda
+\end{vmatrix}=0
+\end{equation*} After suitable algebra we find solutions
+\begin{equation*}
+    \lambda \in \{1,2,-1\}
+\end{equation*}
+Then, to find corresponding eigenvectors we solve the system
+\begin{equation*}
+    \begin{bmatrix}
+6-\lambda & 3 & -2\\
+-4 & -1-\lambda & 2 \\
+13 & 9 & -3-\lambda
+\end{bmatrix}\begin{bmatrix}
+x \\
+y \\
+z
+\end{bmatrix}=0
+\end{equation*} for each value of lambda and find the corresponding eigenvectors \newpage
+\begin{equation*}
+    \begin{bmatrix}
+1 \\
+-1 \\
+1
+\end{bmatrix},\begin{bmatrix}
+-1 \\
+2 \\
+1
+\end{bmatrix},\begin{bmatrix}
+1/2 \\
+-1/2 \\
+1
+\end{bmatrix}
+\end{equation*}
+So to create a product $PDP^{-1}$ to represent $A$, we write $D$ as a diagonal matrix whose entries are the eigenvalues of $A$, $P$ as a matrix who's column vectors are the corresponding eigenvectors to $A$, and $P^{-1}$ as the inverse to this matrix. So,
+\begin{equation*}
+\begin{split}
+    A&=PDP^{-1}\\
+    e^{At}&=Pe^{Dt}P^{-1}\\
+    &=
+     \begin{bmatrix}
+1 & -1 & 1/2\\
+-1 & 2 & -1/2 \\
+1 & 1 & 1
+\end{bmatrix} \begin{bmatrix}
+e^t & 0 & 0\\
+0 & e^{2t} & 0 \\
+0 & 0 & e^{-t}
+\end{bmatrix} \begin{bmatrix}
+5 & 3 & -1\\
+1 & 1 & 0\\
+-6 & -4 & 2
+\end{bmatrix}\\
+&=\begin{bmatrix}
+5e^t-2e^{2t}-3e^{-t} & 3e^t-e^{2t}-2e^{-t} & -e^t+e^{-t}\\
+-5e^t+2e^{2t}+3e^{-t} & -3e^t+2e^{2t}+2e^{-t} & e^t-e^{-t}\\
+5e^t+e^{2t}-6e^{-t} & 3e^t+e^{2t}-4e^{-t} & -e^t+2e^{-t}
+\end{bmatrix}
+    \end{split}
+\end{equation*}
+Finally, since we have
+\begin{equation*}
+    \vec{x}(t)=e^{At}\begin{bmatrix}
+-2 \\
+1  \\
+4 
+\end{bmatrix}
+\end{equation*}
+we can perform the multiplication to find the final solution to the differential equation,
+\begin{equation*}
+    \vec{x}(t)= \begin{bmatrix}
+-11e^t+e^{2t}+8e^{-t} \\
+11e^t-2e^{2t}-8e^{-t}  \\
+-11e^t-e^{2t}+16e^{-t} 
+\end{bmatrix}
+\end{equation*}
+\end{document}

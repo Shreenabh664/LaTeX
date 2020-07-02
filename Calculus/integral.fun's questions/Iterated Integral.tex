@@ -1,0 +1,41 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{dirtytalk}
+\usepackage{bussproofs}
+\usepackage{comment}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{indentfirst}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\usepackage{pgfplots}
+\usepackage{graphicx}
+\begin{document}
+\begin{equation*}
+I=\int_{0}^{1}\int_{0}^{\xi_1}\int_{0}^{\xi_2}...\int_{0}^{\xi_{4999}} \ln(1-\xi_{5000})\,d\xi_{5000}...d\xi_{2}\,d\xi_{1}
+\end{equation*}
+One approach to this integral is to expand $\ln(1-\xi)$ as a power series, and integrate each polynomial term by interchanging summation and integration and resolving the simple sum at the end. While this is a valid approach, we will apply a slightly cleaner and more elegant solution making use of a lesser known mathematical result known as the Cauchy formula for repeated integration. It states
+\begin{equation*}
+    \int_{\alpha}^{x}\int_{\alpha}^{\sigma_1}...\int_{\alpha}^{\sigma_{n-1}}f(\sigma_{n})\,d\sigma_{n}...\,d\sigma_{2}\,d\sigma_1=\frac{1}{(n-1)!}\int_{\alpha}^{x}(x-t)^{n-1}f(t)\,dt
+\end{equation*}
+This result is major in the field of fractional calculus. I will post an inductive proof this week, but feel free to try it for yourself. In the meantime, applying to our integral,
+\begin{equation*}
+    I=\frac{1}{4999!}\int_{0}^{1} (1-t)^{4999}\ln(1-t)\,dt
+\end{equation*}
+Applying reflection identity,
+\begin{equation*}
+    =\frac{1}{4999!}\int_{0}^{1} t^{4999}\ln{t}\,dt
+\end{equation*}
+We will now apply IBP, differentiating $\ln{t}$ and integrating $t^{4999}$ to get 
+
+\begin{equation*}
+    \begin{split}
+        I&=\underbrace{\frac{1}{5000!}\ln{t}\cdot  t^{5000}\Big|_{0}^{1}}_{=0}-\int_{0}^{1} \frac{t^{4999}}{5000!} \,dt\\
+        &= -\frac{1}{5000!\cdot 5000}
+    \end{split}
+  
+\end{equation*}
+
+\end{document}

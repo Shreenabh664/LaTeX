@@ -1,0 +1,35 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+
+\begin{document}
+
+To begin with, we must make note of the well known product representation of the zeta function,
+\begin{equation*}
+    \zeta(s)=\prod_{\text{$p$ prime}} (1-p^{-s})^{-1}
+\end{equation*}
+If we look at our product we have
+\begin{equation*}
+    P=\prod_{\text{$p$ prime}} \frac{p^2+1}{p^2-1}
+\end{equation*}
+Dividing the numerator and denominator by $p^2$,
+\begin{equation*}
+    =\prod_{\text{$p$ prime}} \frac{1+\frac{1}{p^2}}{1-\frac{1}{p^2}}
+\end{equation*}
+Now, we multiply by 1 in the form of the fraction
+\begin{equation*}
+    \begin{split}
+        \prod_{\text{$p$ prime}} \frac{1+\frac{1}{p^2}}{1-\frac{1}{p^2}}&=\prod_{\text{$p$ prime}} \frac{1+\frac{1}{p^2}}{1-\frac{1}{p^2}}\cdot\frac{1-\frac{1}{p^2}}{1-\frac{1}{p^2}} \\
+        &= \prod_{\text{$p$ prime}} \frac{1-\frac{1}{p^4}}{\left(1-\frac{1}{p^2}\right)^2}
+    \end{split}
+\end{equation*}
+The products have reached the form of the Riemann Zeta function, so we can simplify 
+
+\begin{equation*}
+    \begin{split}
+         \prod_{\text{$p$ prime}} \frac{1-\frac{1}{p^4}}{\left(1-\frac{1}{p^2}\right)^2}&=\frac{(\zeta(2))^2}{\zeta(4)} \\
+         &= \frac{(\pi^2/6)^2}{\pi^4/90} \\
+         &=\frac{5}{2}
+    \end{split}
+\end{equation*}
+\end{document}

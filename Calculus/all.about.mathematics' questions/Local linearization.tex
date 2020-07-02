@@ -1,0 +1,41 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usepackage[T1]{fontenc}
+\usepackage{pagecolor}
+\usepackage{amssymb}
+\usepackage{lmodern}
+\usepackage{mathtools, nccmath}
+\usepackage{courier}
+\usepackage[dvipsnames]{xcolor}
+
+\definecolor{myyellow}{RGB}{225,225,100}
+\definecolor{myred}{RGB}{220,100,100}
+\definecolor{mygreen}{RGB}{120,225,120}
+\definecolor{myblue}{RGB}{100,200,255}
+\definecolor{mypurple}{RGB}{200,50,255}
+\color{white}
+\title{\Huge{Multivariable calculus \#1}}
+\author{@all.about.mathematics}
+
+\begin{document}
+
+\maketitle
+\pagecolor{black}
+\Large{\section{Introduction}
+In this post, we talk about local linearization, which is the analog to finding the tangent line to a single-variable function. Basically, we try to find the equation of the tangent \textbf{plane} to a multivariable function and use some vector notation to extend it to more dimensions.}
+\newpage
+\section{Finding tangent planes}
+\Large{Before we try to figure out the tangent plane to a specific function, let's figure out the equation of a plane in 3D. The easiest way to represent a plane is $$P(x,y)=ax+by+c$$From this, we have $$\color{myred}\frac{\partial P}{\partial x}=a\:,\: \frac{\partial P}{\partial y}=b$$To guarantee that the plane passes through a specific point $(x_0,y_0,z_0)$, let's change our equation a little bit $$\color{mygreen}L(x,y)=a(x-x_0)+b(y-y_0)+c$$So, if we wanted to find the tangent plane to $f(x,y)$ at the point $(x_0,y_0,f(x_0,y_0))$, we could easily express it as $$\color{mygreen}L_f(x,y)=a(x-x_0)+b(y-y_0)+f(x_0,y_0)$$We can also see check that $\color{myred}\frac{\partial L_f}{\partial x}=a$ and $\color{myred} \frac{\partial L_f}{\partial y}=b$.Finally, we obtain the formula for a tangent plane:$$\color{myblue}L_f(x,y)=f(x_0,y_0)+f_x(x_0,y_0)(x-x_0)+f_y(x_0,y_0)(y-y_0)$$ }
+
+\newpage
+\section{Generalization with vectors}
+\Large{The formula $$L_f(x,y)=\textcolor{myyellow}{f(x_0,y_0)}+\textcolor {mygreen}{f_x(x_0,y_0)}\textcolor{myred}{(x-x_0)}+\textcolor {mygreen}{f_y(x_0,y_0)}\textcolor{myred}{(y-y_0)}$$is also called the local linearization of $f$ near $(x_0,y_0)$. It satisfies 2 important properties. It has the same value and the same partial derivatives at $(x_0,y_0)$ as $f$. We can see that it contains a \textcolor{myyellow}{constant term}, the \textcolor{mygreen}{partial derivatives of $f$ at $(x_0,y_0)$} multiplied with a \textcolor{myred}{variable term minus the constant term respectively.}
+
+\noindent{Now let $\bold{x_0}=(x_0,y_0)^{T}$ and $\bold{x}=(x,y)^{T}$. Then we can rewrite it as $$L_f(x,y)=\textcolor{myyellow}{f(\bold{x_0})}+\textcolor{mygreen}{\nabla f(\bold{x_0})}\cdot\textcolor{myred}{ (\bold{x}-\bold{x_0})}$$}Where $\textcolor{mygreen}{\nabla f(\bold{x_0})=(f_x(x_0,y_0),f_y(x_0,y_0))^T}$ is the gradient of $f$ at $(x_0,y_0)$. }
+\newpage
+\section{Example}
+\large{Let's say we wanted to approximate $$a=\sqrt{6.99+\sqrt{2.01+\sqrt{3.99}}}$$We can let $f(x,y,z)=\sqrt{x+\sqrt{y+\sqrt{z}}}$ and find the local linearization of $f$ near $\bold(x_0)=(7,2,4)$. First, we evaluate the constant term $$\textcolor{myyellow}{f(\bold{x_0})=f(7,2,4)=\sqrt{7+\sqrt{2+\sqrt{4}}}=3}$$Then we evaluate the partial derivatives and plug in the values
+$$\textcolor{mygreen}{\nabla f(\bold{x})=\left(\frac{\partial f}{\partial x},\frac{\partial f}{\partial y},\frac{\partial f}{\partial z}\right)^T}$$$$\frac{\partial f}{\partial x}=\frac{1}{2\sqrt{x+\sqrt{y+\sqrt{z}}}}\:,\:\frac{\partial f}{\partial y}=\frac{1}{2\sqrt{x+\sqrt{y+\sqrt{z}}}}\cdot\frac{1}{2\sqrt{y+\sqrt{z}}}$$$$\frac{\partial f}{\partial z}=\frac{1}{2\sqrt{x+\sqrt{y+\sqrt{z}}}}\cdot\frac{1}{2\sqrt{y+\sqrt{z}}}\cdot\frac{1}{2\sqrt{z}}$$$$\textcolor{mygreen}{\nabla f(\bold{x_0})=\left(\frac{1}{6},\frac{1}{24},\frac{1}{96}\right)^T}$$Plugging everything in the formula,$$L_f(x,y,z)=\textcolor{myyellow}{f(\bold{x_0})}+\textcolor{mygreen}{\nabla f(\bold{x_0})}\cdot\textcolor{myred}{ (\bold{x}-\bold{x_0})}$$$$=\textcolor{myyellow}{f(\bold{x_0})}+\textcolor{mygreen}{f_x(\bold{x_0})}\textcolor{myred}{(x-x_0)}+\textcolor{mygreen}{f_y(\bold{x_0})}\textcolor{myred}{(y-y_0)}+\textcolor{mygreen}{f_z(\bold{x_0})}\textcolor{myred}{(z-z_0)}$$$$=3+\frac{1}{6}(x-7)+\frac{1}{24}(y-2)+\frac{1}{96}(z-4)$$To approximate $a$, substitute $(x,y,z)=(6.99,2.01,3.99)$ $$L_f(x,y,z))=3+\frac{1}{6}(6.99-7)+\frac{1}{24}(2.01-2)+\frac{1}{96}(3.99-4)\approx2.9986458$$Using a calculator, $a\approx2.9986453$, and our approximation is very accurate.}
+
+\end{document} 

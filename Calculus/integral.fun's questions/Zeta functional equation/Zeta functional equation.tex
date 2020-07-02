@@ -1,0 +1,126 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{relsize}
+\title{challenge 23}
+\author{jackmof7998 }
+\date{June 2020}
+
+\begin{document}
+We will now derive the Riemann functional equation for the zeta function. Riemann originally introduced this property using a function $\xi$, and showing $\xi(s)=\xi(1-s)$, but this approach will go straight for the prize. We begin with the definition of the Euler-Gamma function. 
+\begin{equation*}
+\Gamma(s)=\int_{0}^{\infty}t^{s-1}e^{-t}\,dt 
+\end{equation*}
+Now lets consider 
+\begin{equation*}
+\Gamma\left(\frac{s}{2}\right)=\int_{0}^{\infty}t^{\frac{s}{2}-1}e^{-t}\,dt 
+\end{equation*}
+If we make a substitution $t=\pi n^2 x$ this will not change the LHS since it is independent of $t$ (only a function of $s$), and we can work through the RHS integral. So,
+\begin{equation*}
+    \begin{split}
+        \Gamma\left(\frac{s}{2}\right)&=\int_{0}^{\infty} (\pi n^2 x)^{\frac{s}{2}-1}e^{-\pi n^2 x}\pi n^2 \, dx\\
+        &=\pi^{\frac{s}{2}}n^s\int_{0}^{\infty} x^{\frac{s}{2}-1}e^{-\pi n^2 x}\\
+       \pi^{-\frac{s}{2}}\Gamma\left(\frac{s}{2}\right)\frac{1}{n^s}&=\int_{0}^{\infty} x^{\frac{s}{2}-1}e^{-\pi n^2 x}
+    \end{split}
+\end{equation*}
+We will now sum both from $n=1$ to infinity (which is justifiable as both sides are absolutely convergent), 
+\begin{equation}
+\begin{split}
+    \sum_{n=1}^{\infty} \pi^{-\frac{s}{2}}\Gamma\left(\frac{s}{2}\right)\frac{1}{n^s}&= \sum_{n=1}^{\infty}\int_{0}^{\infty} x^{\frac{s}{2}-1}e^{-\pi n^2 x}\,dx\\
+    \pi^{-\frac{s}{2}}\Gamma\left(\frac{s}{2}\right)  \sum_{n=1}^{\infty}\frac{1}{n^s}&=\int_{0}^{\infty}  x^{\frac{s}{2}-1}\sum_{n=1}^{\infty}e^{-\pi n^2 x}\,dx\\
+    \pi^{-\frac{s}{2}}\Gamma\left(\frac{s}{2}\right) \zeta(s)&=\int_{0}^{\infty}  x^{\frac{s}{2}-1}\underbrace{\sum_{n=1}^{\infty}e^{-\pi n^2 x}}\,dx
+    \end{split}
+\end{equation}
+Now we must take a closer look at this underlined sum. In his original paper, Riemann defined
+\begin{equation*}
+    \psi(x)=\sum_{n=1}^{\infty}e^{-\pi n^2 x}
+\end{equation*}
+It is important to note that $\psi(x)$ does NOT denote the digamma or polygamma function, it is simply the notation he used to define this sum.  \par Okay, now this sum seems to be closely related to the Jacobi theta function, so lets try to explore this relation. 
+\begin{equation*}
+    \begin{split}
+        \vartheta(x)&=\sum_{n=-\infty}^{\infty}e^{-\pi n^2 x} \\
+        &= 1+\sum_{n=-\infty}^{-1}e^{-\pi n^2 x}+\sum_{n=1}^{\infty}e^{-\pi n^2 x}\\
+        &=1+\sum_{n=-1}^{-\infty}e^{-\pi n^2 x}+\sum_{n=1}^{\infty}e^{-\pi n^2 x}
+    \end{split}
+\end{equation*}   
+Since the only $n$ in the term being summed is squared, all terms of the sum are even, so plugging in $-n$ will give the same term as $n$. From this we can say
+\begin{equation*}
+    \begin{split}
+        \vartheta(x)&=1+2\sum_{n=1}^{\infty}e^{-\pi n^2 x}\\
+        &=1+2\psi(x)
+    \end{split}
+\end{equation*}
+Okay, very good. Let's now replace this function into the integral from (1), and then split up the integral.
+\begin{equation*}
+    \begin{split}
+         \pi^{-\frac{s}{2}}\Gamma\left(\frac{s}{2}\right) \zeta(s)&=\int_{0}^{\infty}  x^{\frac{s}{2}-1}\psi(x)\,dx\\
+         &=\int_{0}^{1}  x^{\frac{s}{2}-1}\psi(x)\,dx+\int_{1}^{\infty}  x^{\frac{s}{2}-1}\psi(x)\,dx
+    \end{split}
+\end{equation*}
+Let's take a closer look at the first integral, from 0 to 1. 
+We now use the functional equation of the theta function (see previous post for full derivation) that states. 
+\begin{equation*}
+    \vartheta(x)=\frac{1}{\sqrt{x}}\vartheta\left(\frac{1}{x}\right)
+\end{equation*} 
+And since $\vartheta(x)=1+2\psi(x)$,
+\begin{equation*}
+    \begin{split}
+        1+2\psi(x)&=\frac{1}{\sqrt{x}}\left(2\psi\left(\frac{1}{x}\right)+1\right)\\
+        \psi(x)&=\frac{1}{\sqrt{x}}\psi\left(\frac{1}{x}\right)+\frac{1}{2\sqrt{x}}-\frac{1}{2}
+    \end{split}
+\end{equation*}   
+We can replace this expression for $\psi$ into the integral we were trying to evaluate earlier in (1)
+\begin{equation*}
+    \int_{0}^{1}  x^{\frac{s}{2}-1}\psi(x)\,dx&=\int_{0}^{1}  x^{\frac{s}{2}-1}\left(\frac{1}{\sqrt{x}}\psi\left(\frac{1}{x}\right)+\frac{1}{2\sqrt{x}}-\frac{1}{2}\right)\,dx
+\end{equation*}
+Okay, now that we've made everything look wayyy more complicated we can begin to clean things up. Let's distribute the power of $x$, and split up the integral
+\begin{equation*}
+    \begin{split}
+    &=\int_{0}^{1} x^{\frac{s}{2}-\frac{3}{2}}\psi\left(\frac{1}{x}\right)\,dx+\frac{1}{2}\int_{0}^{1}x^{\frac{s}{2}-\frac{3}{2}}-x^{\frac{s}{2}-1}\,dx\\
+    &=\int_{0}^{1} x^{\frac{s}{2}-\frac{3}{2}}\psi\left(\frac{1}{x}\right)\,dx+\frac{1}{s(s-1)}
+    \end{split}
+\end{equation*}
+Where we reached the last line as a result of integrating the power function. Now, lets apply a substitution to out integral $x\rightarrow \frac{1}{t}$. Not that this will change our bounds of integration. We will have
+\begin{equation*}
+    \begin{split}
+        \int_{0}^{1}  x^{\frac{s}{2}-1}\psi\left(\frac{1}{x}\right)\,dx&=\int_{\infty}^{1} \left(\frac{1}{u}\right)^{\frac{s}{2}-\frac{3}{2}}\psi(u)\frac{-\,du}{u^2}+\frac{1}{s(s-1)}\\
+        &=\int_{1}^{\infty} u^{-\frac{s}{2}-\frac{1}{2}}\psi(u)\,du
+    \end{split}
+\end{equation*}
+And since u is just a dummy variable, we can replace it
+\begin{equation*}
+    \int_{1}^{\infty} u^{-\frac{s}{2}-\frac{1}{2}}\psi(u)\,du=\int_{1}^{\infty} x^{-\frac{s}{2}-\frac{1}{2}}\psi(x)\,dx
+\end{equation*}   
+Okay, so essentially we have just shown that
+\begin{equation*}
+    \int_{0}^{1}  x^{\frac{s}{2}-1}\psi(x)\,dx=\int_{1}^{\infty}x^{-\frac{s}{2}-\frac{1}{2}}\psi(x)\,dx+\frac{1}{s(s-1)}
+\end{equation*}
+Now we recall that
+\begin{equation*}
+\int_{0}^{\infty}  x^{\frac{s}{2}-1}\psi(x)\,dx=\int_{0}^{1}  x^{\frac{s}{2}-1}\psi(x)\,dx+\int_{1}^{\infty}  x^{\frac{s}{2}-1}\psi(x)\,dx
+\end{equation*}
+So,
+\begin{equation*}
+    \begin{split}
+        \int_{0}^{\infty}  x^{\frac{s}{2}-1}\psi(x)\,dx&=\int_{1}^{\infty}  x^{-\frac{s}{2}-\frac{1}{2}}\psi(x)\,dx+\int_{1}^{\infty}  x^{\frac{s}{2}-1}\psi(x)\,dx+\frac{1}{s(s-1)} \\
+        &=\int_{1}^{\infty}\left[x^{\frac{s}{2}-1}+x^{-\frac{s}{2}-\frac{1}{2}}\right]\psi(x)\,dx+\frac{1}{s(s-1)}
+    \end{split}
+\end{equation*}
+We also must recall from (1) that
+\begin{equation*}
+    \pi^{-\frac{s}{2}}\Gamma\left(\frac{s}{2}\right)\zeta(s)= \int_{0}^{\infty}  x^{\frac{s}{2}-1}\psi(x)\,dx
+\end{equation*}
+So once again,
+\begin{equation*}
+     \pi^{-\frac{s}{2}}\Gamma\left(\frac{s}{2}\right)\zeta(s)=\int_{1}^{\infty}\left[x^{\frac{s}{2}-1}+x^{-\frac{s}{2}-\frac{1}{2}}\right]\psi(x)\,dx+\frac{1}{s(s-1)}
+\end{equation*}   
+This relationship may seem less useful and more complicated since the RHS integration is near impossible to evaluate directly, but we can use a trick. Let's prepare to use some symmetry by factoring and x from the integral and multiplying/dividing the fraction by $-1$,
+\begin{equation*}
+         \pi^{-\frac{s}{2}}\Gamma\left(\frac{s}{2}\right)\zeta(s)=\int_{1}^{\infty}\left[x^{\frac{s}{2}}+x^{\frac{1-s}{2}}\right]\frac{\psi(x)}{x}\,dx-\frac{1}{s(1-s)}
+\end{equation*}
+We note that plugging in $s$ or $1-s$ into the RHS yields the same result, it has symmetry. Try it out yourself to see! Therefore, we don't even need to evaluate the integral since this implies the LHS also has the same symmetry, or plugging in $s$ and $1-s$ will give the same value. And there we have it!
+\begin{equation*}
+ \pi^{-\frac{s}{2}}\Gamma\left(\frac{s}{2}\right)\zeta(s)=\pi^{-\frac{1-s}{2}}\Gamma\left(\frac{1-s}{2}\right)\zeta(1-s)
+\end{equation*}
+The Riemann functional equation! This equation can be used to analytically continue the definition of the zeta function past it's original domain $\text{Re}(s)>1$, and is valid for any complex input other than 0 and 1. The Riemann hypothesis and many arguments of the zeta function are discovered using this relation.
+\end{document}

@@ -1,0 +1,54 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usepackage[T1]{fontenc}
+\usepackage{pagecolor}
+\usepackage{amssymb}
+\usepackage{lmodern}
+\usepackage{mathtools, nccmath}
+\usepackage{courier}
+\usepackage[dvipsnames]{xcolor}
+
+\definecolor{myyellow}{RGB}{225,225,100}
+\definecolor{myred}{RGB}{220,100,100}
+\definecolor{mygreen}{RGB}{120,225,120}
+\definecolor{myblue}{RGB}{100,200,255}
+\definecolor{mypurple}{RGB}{200,50,255}
+\color{white}
+\title{\Huge{Solution to Calculus \#1}}
+\author{@all.about.mathematics}
+
+\begin{document}
+\large
+\maketitle
+\pagecolor{black}
+\section{Problem}
+Evaluate the integral 
+$$\int_{0}^{\infty}\frac{1}{{\sqrt[\leftroot{-1}\uproot{1}4]{x}}\:(1+x^3)}dx$$
+\newpage
+\section{Solution}
+Consider the generalized integral where $\frac m n \not \in \mathbb{Z}$
+$$I(m,n)=\int_{0}^{\infty}\frac{x^{m-1}}{1+x^n}dx$$
+Therefore our desired integral is $I(\frac{3}{4},3)$. Let
+$$u=\frac{1}{1+x^n}\implies x=\left(\frac{1-u}{u}\right)^\frac{1}{n}\implies dx=-\left(\dfrac{1-u}{u}\right)^{\large\frac1n-1}\ \dfrac{du}{nu^2}$$
+Besides, $x=\infty\implies u=0$ and $x=0\implies u=1$. Therefore,
+$$I(m,n)=\int_{1}^{0}\left({\left(\frac{1-u}{u}\right)^\frac{1}{n}}\right)^{m-1}\left(-u\left(\dfrac{1-u}{u}\right)^{\large\frac1n-1}\right) \dfrac{du}{nu^2}$$
+\begin{equation}
+=\frac1n \int_{0}^{1}u{\left(\frac{1-u}{u}\right)^{\frac{m}{n}-1}}{du}=\frac1n\int_0^1u^{1-\frac{m}{n}-1}(1-u)^{\frac{m}{n}-1} du
+\end{equation}
+Recall the definition of the Beta function and its special property
+$$\text{B}(a,b)=\int_0^1t^{a-1}(1-t)^{b-1} dt=\frac{\Gamma(a)\cdot\Gamma(b)}{\Gamma(a+b)}$$
+Hence the last integral in $(1)$ becomes
+\begin{equation}
+\frac{ B\left(1-\frac mn , \frac m n\right)}{n}= \frac 1 n \frac{\Gamma(1-\frac mn)\cdot\Gamma(\frac m n)}{\Gamma(1-\frac mn + \frac m n)} = \frac 1 n\: \Gamma\left(1-\frac mn\right)\cdot\Gamma\left(\frac m n\right) 
+\end{equation}
+Recall the Euler's reflection formula 
+$$\Gamma(z)\cdot\Gamma(1-z)=\frac{\pi}{\sin(\pi z)}\:\:\:\:\: z\not\in\mathbb{Z}$$
+Given that $\frac m n \not\in \mathbb{Z}$, we use the Euler's reflection formula for $(2)$
+$$I(m,n)= \frac{\pi}{n \sin(\frac {m\pi}{n} )}$$
+Therefore, our desired integral 
+$$I\left(\frac{3}{4},3\right)= \frac{\pi}{3 \sin \left(\frac {\frac 3 4\pi}{3}\right)}= \frac{\sqrt{2}\pi}{3}$$
+\newpage
+\section{Method 2}
+
+\end{document}

@@ -1,0 +1,49 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usepackage[T1]{fontenc}
+\usepackage{pagecolor}
+\usepackage{amssymb}
+\usepackage{lmodern}
+\usepackage{mathtools, nccmath}
+\usepackage{courier}
+\usepackage[dvipsnames]{xcolor}
+
+\definecolor{myyellow}{RGB}{225,225,100}
+\definecolor{myred}{RGB}{220,100,100}
+\definecolor{mygreen}{RGB}{120,225,120}
+\definecolor{myblue}{RGB}{100,200,255}
+\definecolor{mypurple}{RGB}{200,50,255}
+\color{white}
+\title{\Huge{Solution to Calculus \#2}}
+\author{@all.about.mathematics}
+\date{}
+\begin{document}
+\Large
+\maketitle
+\pagecolor{black}
+\section{Problem}
+Evaluate the integral 
+\large
+$$\int_{0}^{\infty}\frac{(x^2-1)\ln x}{1+x^6}dx$$
+\large
+\newpage
+\section{Solution}
+In our last post, we had established this result for $\frac m n \not \in \mathbb{Z}$
+\begin{equation}
+I(m,n)=\int_{0}^{\infty}\frac{x^{m-1}}{1+x^n}dx=\frac{\pi}{n\sin\left(\frac{m\pi}{m}\right)}=\frac{\pi}{n}\csc\left(\frac{m\pi}{n}\right)
+\end{equation}
+Differentiating $(1)$ with respect to $m$,
+$$\frac{dI(m,n)}{dm}=\frac{d}{dm}\int_{0}^{\infty}\frac{x^{m-1}}{1+x^n}dx= \int_{0}^{\infty}\frac{\partial}{\partial m}\frac{x^{m-1}}{1+x^n}dx= \int_{0}^{\infty}\frac{x^{m-1} \ln x}{1+x^n}dx$$
+We also have 
+$$\frac{dI(m,n)}{dm}=\frac{d}{dm}\left[\frac{\pi}{n}\csc\left(\frac{m\pi}{n}\right)\right]=-\frac{\pi^2}{n^2}\csc\left(\frac{m\pi}{n}\right)\cot\left(\frac{m\pi}{n}\right)$$
+Rewriting our integral,
+$$\int_{0}^{\infty}\frac{(x^2-1)\ln x}{1+x^6}dx=\int_{0}^{\infty}\frac{x^2\ln x}{1+x^6}dx-\int_{0}^{\infty}\frac{\ln x}{1+x^6}dx$$
+$$=\frac{dI(3,6)}{dm}-\frac{dI(1,6)}{dm}$$
+$$=-\frac{\pi^2}{6^2}\csc\left(\frac{3\pi}{6}\right)\cot\left(\frac{3\pi}{6}\right)-\left(-\frac{\pi^2}{6^2}\csc\left(\frac{\pi}{6}\right)\cot\left(\frac{\pi}{6}\right)\right)$$
+$$=\frac{\pi^2}{6\sqrt{3}}$$
+
+
+
+
+\end{document}

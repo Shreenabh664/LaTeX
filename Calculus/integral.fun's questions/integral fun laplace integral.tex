@@ -1,0 +1,40 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[legalpaper, portrait, margin=1in]{geometry}
+\title{Integral Fun Integral}
+\author{Shreenabh Agrawal }
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Question}
+
+$$I_{(\alpha, n)}=\int\limits_{0}^{\infty} \frac{\cos (\alpha x)}{x^{n}} \: d x$$
+
+\section{Solution}
+We Know,
+$$\begin{aligned}
+\int\limits_{0}^{\infty} f(t) \: g(t) \: d t=\int\limits_{0}^{\infty} \mathcal{L}\{f(t)\} \: \mathcal{L}^{-1}\{g(t)\} \: d t
+\end{aligned}$$
+Applying this,
+$$\begin{aligned}
+\therefore I_{(\alpha, n)} &=\int\limits_{0}^{\infty} \mathcal{L}\{\cos (\alpha x)\} \: \mathcal{L}^{-1}\left\{\frac{1}{x^{n}}\right\} \: d x \\
+&=\int\limits_{0}^{\infty} \frac{s}{s^{2}+\alpha^{2}} \times \frac{s^{n-1}}{\Gamma(n)} \: d s \\
+&=\frac{1}{\Gamma(n)} \int\limits_{0}^{\infty} \frac{s^{n}}{s^{2}+\alpha^{2}} \: d s
+\end{aligned}$$
+Taking Substitution,
+
+$$\begin{aligned}
+s&= \alpha \: \tan \theta \\
+d s &=\alpha \: \sec ^{2} \theta \: d \theta
+\end{aligned}$$
+
+$$\begin{aligned} \Rightarrow \quad I_{(\alpha, n)} &=\frac{1}{\Gamma(n)} \int\limits_{0}^{\pi / 2} \frac{\alpha^{n} \tan ^{n} \theta}{\alpha^{2} \sec ^{2} \theta} \: \alpha \sec^{2} \theta \: d \theta \\ &=\frac{\alpha^{n-1}}{\Gamma(n)} \int\limits_{0}^{\pi / 2} \tan ^{n} \theta \: d \theta \end{aligned}$$
+
+$$\boxed{I_{(\alpha, n)}=\frac{\pi \alpha^{n-1}}{2 \Gamma(n) \cos \left(\frac{\pi n}{2}\right)}}$$
+
+\end{document}

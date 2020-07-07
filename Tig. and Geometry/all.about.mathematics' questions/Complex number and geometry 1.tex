@@ -1,0 +1,66 @@
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usepackage[T1]{fontenc}
+\usepackage{pagecolor}
+\usepackage{amssymb}
+\usepackage{lmodern}
+\usepackage{mathtools, nccmath}
+\usepackage{courier}
+\usepackage[dvipsnames]{xcolor}
+
+\definecolor{myyellow}{RGB}{225,225,100}
+\definecolor{myred}{RGB}{220,100,100}
+\definecolor{mygreen}{RGB}{120,225,120}
+\definecolor{myblue}{RGB}{100,200,255}
+\definecolor{mypurple}{RGB}{200,50,255}
+\color{white}
+
+\title{Geometry with complex numbers \#1}
+\author{@all.about.mathematics}
+
+\begin{document}
+
+\maketitle
+\pagecolor{black}
+\LARGE
+\section{Introduction}
+In this series of posts, we discuss representations of geometrical objects with complex numbers and use them to prove some famous geometry theorems! We'll focus on lines and points in this post!
+
+\noindent{Enjoy :D}
+\newpage
+\Large
+\section{Lines with complex numbers}
+First, let's think about lines segments on the complex plane. Let $z_1, z_2 \in\mathbb{C}$. How can we represent the line segment from $z_1$ and $z_2$? 
+
+\noindent{We know that the vector from $z_1$ to $z_2$ is $z_2-z_1$, so we can represent the line segment by the equation}
+$$l=z_1+t(z_2-z_1)=z_1+tv$$
+Where $t$ is a parameter so that $0\leq t\leq 1$ and $v$ is a non-zero vector in the direction of the line. Therefore, the line segment is the collection of all possible points $l$. Besides, if we let $t$ be any real number, then we get the line passing through $z_1$ and $z_2$.
+
+\noindent
+For example, let $z_1=3-2i$ and $z_2=4+5i$. Then the equation
+$$L:3-2i+t(1+7i)$$
+With $0\leq t\leq 1$ is the line segment from $z_1$ to $z_2$, and if $t\in\mathbb{R}$ then it is the line passing through $z_1$ and $z_2$. 
+
+\newpage
+\section{Finding points of division}
+Let's say we have 2 points $z_1,z_2\in\mathbb{C}$. Suppose we want to find a $z_3$ on the line segment $z_1 z_2$ such that it divides the length of the line segment by the ratio $a:b$, which is equivalent to 
+$$|z_1-z_3|:|z_2-z_3|=a:b$$
+Consider the equation 
+$$L:=z_1+t(z_2-z_1)\qquad 0\leq t \leq 1$$
+To find $z_3$, 
+$$t=\frac{a}{a+b}\implies z_3=z_1+\frac{a}{a+b}(z_2-z_1)=\frac{bz_1+az_2}{a+b}$$
+
+\noindent
+For example, let $z_1=4+5i\:,\: z_2=-4-3i$ and suppose we want to find $z_3$ such that it divides $z_1z_2$ by $3:5$. Then
+$$z_3=\frac{5(4+5i)+3(-4-3i)}{3+5}=\frac{8+16i}{8}=1+2i$$
+
+\newpage
+\section{Parallel lines}
+Given 2 lines $L_1\:,\: L_2$ and their equations 
+$$L_1:z_1+tv_1 \qquad t\in\mathbb{R}$$
+$$L_1:z_2+sv_2 \qquad s\in\mathbb{R}$$
+It is easy to see that if $v_1$ and $v_2$ are parallel, i.e.
+$$\exists k\in\mathbb{R}:v_1=kv_2 $$
+Stay tuned for the next post! We are going to use what we've learned here to easily prove a very useful theorem!
+\end{document}

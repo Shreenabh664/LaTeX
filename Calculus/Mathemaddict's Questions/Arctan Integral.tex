@@ -1,0 +1,46 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[legalpaper, portrait, margin=1in]{geometry}
+
+\title{Mathemaddict Arctan Integral}
+\author{Shreenabh Agrawal}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Question}
+Evaluate: $$\int\limits_{0}^{\infty} \frac{\tan ^{-1}\left(\frac{3}{2 x}\right)-\tan ^{-1}\left(\frac{1}{x}\right)}{x} \: d x$$
+\section{Solution}
+
+Taking Substitution,
+$$\begin{aligned}
+\frac{1}{x} &=t \\
+\frac{-1}{x^{2}} \: d x &=d t
+\end{aligned}$$
+Hence, our Integral becomes,
+$$I=\int\limits_{0}^{\infty} \frac{\tan ^{-1}\left(\frac{3 t}{2}\right)-\tan ^{-1}(t)}{t} \: dt$$
+Let's derive a general formula for:-
+$$I_{(a, b)}=\int_{0}^{\infty} \frac{\tan ^{-1}(a x)-\tan ^{-1}(b x)}{x} \: dx$$
+Applying Leibniz Rule w.r.t Parameter $a$, 
+$$\frac{\partial I_{(a, b)}}{\partial a}=\int_{0}^{\infty} \frac{1}{1+a^{2} x^{2}}\:  d x=\frac{\pi}{2 a}$$
+Integrating it back, 
+$$\therefore \quad I_{(a, b)}=\frac{\pi}{2} \ln (a)+c$$
+If we evaluate the special case for $a=b$,
+we can calculate the value of $c$ as,
+$$c=-\frac{\pi}{2} \ln b$$
+Hence,
+$$\begin{aligned}
+I_{(a, b)} 
+&=\frac{\pi}{2} \ln a-\frac{\pi}{2} \ln b \\
+I_{(a, b)}
+&=\frac{\pi}{2} \ln \left(\frac{a}{b}\right)
+\end{aligned}$$
+Now substituting:-
+$$a=\frac{3}{2}, b=1$$
+Thus,
+$$\boxed{I_{\left(\frac{3}{2}, 1\right)}=\frac{\pi}{2} \ln \frac{3}{2}}$$
+\end{document}

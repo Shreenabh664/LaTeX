@@ -1,0 +1,278 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{ gensymb }
+\usepackage{ dsfont }
+\usepackage{polski}
+\usepackage{ textcomp }
+\usepackage{amsmath}
+\usepackage{ wasysym }
+\usepackage{graphicx}
+\usepackage{ amssymb }
+
+
+\title{Linear Algebra Problems in Polish}
+\author{Andrzej "Mathinity" Kukla}
+\date{ }
+
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{ dsfont }
+
+\begin{document}
+
+\maketitle
+
+\begin{center}
+\large \textbf{1.} Udowodnić, że dla dowolnej kwadratowej macierzy A wyznacznik macierzy $e^A$ jest równy $e^{trA}$
+\end{center}
+\normalsize{}
+\begin{flushleft}
+\textbf{DW.}
+\end{flushleft}
+Ustalmy dowolną kwadratową macierz $A\in M_{n\times n}(\mathds{C})$ oraz jej postać Jordana: $A=PJP^{-1}$.
+$$det(e^A)=det(e^{PJP^{-1}})=det(Pe^JP^{-1})=\underbrace{det(P)det(P^{-1})}_{=1}det(e^J)=det(e^J)$$
+Skoro macierz $e^J$ jest macierzą górnotrójkątną, to jej wyznacznik jest iloczynem wyrazów na głównej przekątnej, więc 
+$$det(e^J)=e^{trJ}$$
+Jako że $tr(A)=tr(PJP^{-1})=tr(P^{-1}PJ)=tr(J)$, to $det(e^A)=e^{trA}$.
+\begin{flushright}
+$\blacksquare$
+\end{flushright}
+\begin{center}
+\large \textbf{2.} Wykazać, że jeżeli na przestrzeni wektorowej $X$ nad ciałem $\mathds{K}$ dwa iloczyny skalarne indukują te same normy, to są one sobie równe.
+\end{center}
+\normalsize{}
+\textbf{DW.}
+Niech $\langle \cdot,\cdot\rangle$ oraz $\langle\langle\cdot,\cdot\rangle\rangle$ na przestrzeni wektorowej $X$ indukują tą samą normę $||\cdot||$ nad ciałem $\mathds{K}$. Wtedy $\forall_{x\in X}:\sqrt{\langle x,x\rangle} := ||x|| =: \sqrt{\langle\langle x,x\rangle\rangle}$. Stąd wynika, że $\forall_{x\in X}\langle x,x\rangle=\langle\langle x,x\rangle\rangle$. Teraz niech $x,y\in X$. Mamy: 
+\begin{align*}
+\langle x+y,x+y\rangle&=\langle\langle x+y,x+y\rangle\rangle\\
+\langle x,x+y\rangle + \langle y,x+y\rangle&=\langle\langle x,x+y\rangle\rangle + \langle\langle y,x+y\rangle\rangle\\
+\langle x,x\rangle + \langle x,y \rangle + \langle y,x \rangle + \langle y,y \rangle &= \langle\langle x,x\rangle\rangle + \langle\langle x,y \rangle\rangle + \langle\langle y,x \rangle\rangle + \langle\langle y,y \rangle\rangle
+\end{align*}
+Skoro $\forall_{x\in X}\langle x,x\rangle=\langle\langle x,x\rangle\rangle$, to:
+\begin{align*}
+    \langle x,y \rangle + \overline{\langle x,y \rangle} &= \langle\langle x,y \rangle\rangle + \overline{\langle\langle x,y \rangle\rangle}\\
+    \mathfrak{R}\langle x,y \rangle&=\mathfrak{R}\langle\langle x,y \rangle\rangle
+\end{align*}
+Dla $\mathds{K}=\mathds{R}$ dowód jest skończony. Gdy $\mathds{K}=\mathds{C}$, to:
+
+$\cdot$ Obserwacja: niech $x,y\in X$. Wtedy: $$\langle x,y \rangle=\overline{\langle y,x \rangle}=i\cdot\overline{i\langle y,x\rangle}=i\cdot\overline{\langle iy,x\rangle}=i\langle x,iy\rangle$$
+Mamy: 
+\begin{align*}
+    4\langle x,y \rangle &= 2\langle x,y \rangle + 2\langle y,x \rangle + 2i\langle x,iy \rangle + 2\langle iy,x \rangle = \\
+    &= \langle x,x \rangle + \langle x,y \rangle +\langle y,x \rangle + \langle y,y \rangle -(\langle x,x \rangle - \langle x,y \rangle -\langle y,x \rangle + \langle y,y \rangle) +\\
+    &+ i(\langle x,x \rangle + \langle x,iy \rangle +\langle iy,x \rangle + \langle iy,iy \rangle -(\langle x,x \rangle - \langle x,iy \rangle -\langle iy,x \rangle + \langle iy,iy \rangle)) =\\
+    &= ||x+y||^2-||x-y||^2+i||x+iy||^2-i||x-iy||^2
+\end{align*}
+Analogicznie wychodzi, że $4\langle\langle x,y \rangle\rangle= ||x+y||^2-||x-y||^2+i||x+iy||^2-i||x-iy||^2$, więc $\langle x,y \rangle=\langle\langle x,y \rangle\rangle$.
+\begin{flushright}
+$\blacksquare$
+\end{flushright}
+\begin{center}
+\large \textbf{3.}  Wyznaczyć iloczyn skalarny w przestrzeni $\mathds{R}^2$, względem którego baza $(2, 1),(3, 2)$ jest ortonormalna.
+\end{center}
+\normalsize{}
+Załóżmy, że 
+\begin{align*}
+    g((x_1,y_1),(x_2,y_2))&=ax_1^2 + bx_1y_1 + cx_1x_2 + dx_1y_2 + ey_1^2 \\&+ fx_2y_1 + gy_1y_2 + hx_2^2 + ix_2y_2 + jy_2^2,\\&\quad a,b,c,d,e,f,g,h,i,j\in\mathds{R} 
+\end{align*}
+Skoro $g((rx_1,ry_1),(x_2,y_2))$ dla pewnego $r\in\mathds{R}$, to $a=b=g=h=0$.
+Skoro $g((x_1,y_1),(x_2,y_2))=g((x_2,y_2),(x_1,y_1))$ (bo działamy w przestrzeni $\mathds{R}^2$), to $d=f$. Skrócona wersja działania g: $$g((x_1,y_1),(x_2,y_2))=cx_1x_2 + d(x_1y_2+x_2y_1) + gy_1y_2$$
+Skoro baza $(2, 1),(3, 2)$ jest ortonormalna, to $||(2, 1)||=1$ oraz $||(3, 2)||=1$, więc:
+$$g((2,1),(2,1))=4c+4d+g=1\ _\wedge\ g((3,2),(3,2))=9c+12d+4g=1$$
+Z układu równań wnioskujemy, że $d=\frac{3-7c}{4}$ oraz $g=3c-2$.
+
+Podstawiając $c=5$ otrzymujemy następujące działanie: $$g((x_1,y_1),(x_2,y_2))=5x_1x_2-8(x_1y_2+x_2y_1)+13y_1y_2$$
+Sprawdźmy, czy jest to iloczyn skalarny:
+\begin{flushleft}
+\textbf{1)} $g((x,y),(x,y))=5x^2-16xy+13y^2$
+
+\quad $\Delta_x=256y^2-260y^2\leq0\ \forall_{y\in\mathds{R}}$
+
+\quad $\Delta_y=256x^2-260x^2\leq0\ \forall_{x\in\mathds{R}}$
+
+Z tego wynika, że $\forall_{(x,y)\in\mathds{R}^2}:\ g((x,y),(x,y))\geq0$ i równość zachodzi jedynie dla $(0,0)$.
+
+\ 
+
+\textbf{2)} $g((x_1,y_1)+(x_2,y_2),(x_3+y_3))=$
+
+$\quad=5x_3(x_1+x_2)-16((x_1+x_2)y_3+x_3(y_1+y_2))+13y_3(y_1+y_2)=$ 
+
+$\quad=5x_1x_3-16(x_1y_3+x_3y_1)+13(y_1y_3)+5x_2x_3-16(x_2y_3+x_3y_2)+13(y_2y_3)=$
+
+$\quad=g((x_1,y_1),(x_3,y_3))+g((x_2,y_2),(x_3,y_3)).$
+
+\ 
+
+\textbf{3)} $g((rx_1,ry_1),(x_2,y_2))=rg((x_1,y_1),(x_2,y_2))$ wynika z założenia.
+
+\ 
+
+\textbf{4)} $g((x_1,y_1),(x_2,y_2))=g((x_2,y_2),(x_1,y_1))$ wynika z założenia.
+
+\ 
+
+Baza (2,1) (3,2) jest ortonormalna względem g z założenia.
+\end{flushleft}
+
+\begin{center}
+\large \textbf{4.}  Niech $X$ będzie przestrzenią wektorową nad ciałem $\mathds{R}$ z iloczynem skalarnym indukującym normę $||\cdot||$. Udowodnić, że wektory $x,y\in X$ są prostopadłe względem tego iloczynu skalarnego wtedy i tylko wtedy, gdy $||x+y||^2=||x||^2+||y||^2$ (twierdzenie Pitagorasa). Wykazać, że nad $\mathds{C}$ analogiczne twierdzenie nie jest prawdziwe.
+\end{center}
+\textbf{DW.}
+Niech $\langle\cdot,\cdot\rangle:X\times X\rightarrow\mathds{K}$ będzie danym iloczynem skalarnym, a $\mathds{K}=\mathds{R}$.
+\textbf{($\Rightarrow$)} Skoro $x\bot y$ względem $\langle\cdot,\cdot\rangle$, to $\langle x,y\rangle=0$. Wtedy $$||x+y||^2=\langle x+y,x+y\rangle=\langle x,x \rangle+\underbrace{2\langle x,y \rangle}_{=0}+\langle y,y \rangle=||x||^2 + ||y||^2$$
+\textbf{($\Leftarrow$)} Skoro
+$$||x+y||^2=\langle x+y,x+y\rangle=\langle x,x \rangle+2\langle x,y \rangle+\langle y,y \rangle=||x||^2 + ||y||^2,$$
+to $\langle x,y \rangle=0$, więc $x\bot y$ względem $\langle\cdot,\cdot\rangle$.
+\begin{flushright}
+$\blacksquare$
+\end{flushright}
+Niech $\langle\cdot,\cdot\rangle:X\times X\rightarrow\mathds{K}$ będzie danym iloczynem skalarnym, a $\mathds{K}=\mathds{C}$. Wtedy 
+$$||x+y||^2=\langle x+y,x+y\rangle=\langle x,x \rangle+\langle x,y \rangle+\overline{\langle x,y\rangle}+\langle y,y \rangle$$
+Jeśli $\langle x,y\rangle=ic$ dla pewnego $c\in\mathds{R}\setminus\{0\}$, to $$\langle x,y\rangle+\overline{\langle x,y\rangle}=\langle x,y\rangle-\langle x,y\rangle=0$$ W takim wypadku $||x+y||^2=||x||^2+||y||^2$, ale $\langle x,y\rangle\neq0$, więc teza jest fałszywa.
+
+\begin{center}
+\large\textbf{5.} Dana jest symetryczna macierz $A$ o wymiarach $n\times n$ i wyrazach rzeczywistych. Udowodnić, że jeżeli istnieje liczba całkowita dodatnia $m$ taka, że $A^m=I$, to $A^2=I$
+\end{center}
+
+Skoro A jest macierzą symetryczną, to istnieje macierz ortogonalna $Q$ o wymiarach $n\times n$ taka, że $QDQ^T=A$, gdzie $D$ jest macierzą diagonalną z wartościami własnymi $\lambda_i$ macierzy $A$ na przekątnej. Mamy:
+$$A^m=(QDQ^T)^m=QD^mQ^T=I=QQ^T$$
+
+Stąd widać, że $D^m=I$, a więc $\forall i\in\{1,...,n\}:\ \lambda_i^m=1$, a skoro A jest macierzą symetryczną to każda jej wartość własna $\lambda_i$ jest rzeczywista, więc $\forall i\in\{1,...,n\}:\ \lambda_i\in\{1,-1\}$. Stąd: $$A^2=(QDQ^T)^2=QD^2Q^T=QIQ^T=I$$
+\begin{flushright}
+$\blacksquare$
+\end{flushright}
+
+\begin{center}
+\large \textbf{6.} Niech X będzie rzeczywistą przestrzenią unitarną, zaś $t\neq1$ liczbą rzeczywistą. Wykazać, że dla wektorów $x,y\in X$ równość
+$$(1+t^2)\|x+y\|^2=\|tx+y\|^2+\|x+ty\|^2$$
+zachodzi wtedy i tylko wtedy, gdy wektory $x$ i $y$ są prostopadłe.
+\end{center}
+\textbf{DW.} Rozpiszmy prawą część równania:
+\begin{align*}
+\|tx+y\|^2+\|x+ty\|^2&=t^2\langle x,x\rangle+t\langle x,y\rangle+t\langle y,x\rangle+\langle y,y\rangle+\\
+&\quad+\langle x,x\rangle+t\langle x,y\rangle+\langle y,x\rangle+t^2\langle y,y\rangle=\\
+&= (1+t^2)(\|x\|^2+\|y\|^2) -4t\langle x,y\rangle=\\
+&=(1+t^2)(\|x+y\|^2-2\langle x,y\rangle) -4t\langle x,y\rangle=\\
+&=(1+t^2)\|x+y\|^2-2\langle x,y\rangle(t-1)^2
+\end{align*}
+
+Równość z tezy zachodzi wtedy i tylko wtedy, gdy $\langle x,y\rangle=0$ lub $t=1$, ale z założenia $t\neq1$, więc $\langle x,y\rangle=0$, czyli $x\bot y$.
+\begin{flushright}
+$\blacksquare$
+\end{flushright}
+
+\begin{center}
+\large\textbf{7.} Udowodnić, że jeżeli symetryczna macierz rzeczywista A o wymiarach $n\times n$ jest nieujemnie
+określona, to istnieje dokładnie jedna symetryczna, rzeczywista i nieujemnie określona macierz
+B o wymiarach $n\times n$ taka, że $A=B^2$.
+\end{center}
+\normalsize
+\textbf{DW.} Istnienie macierzy B jest całkiem oczywiste. Skoro A jest symetryczna, to jest diagonalizowalna, więc niech $A=PDP^{-1}$ dla pewnej macierzy ortogonalnej P ($P^{-1}=P^T$) i macierzy diagonalnej D składającej się z wartości własnych A na głównej przekątnej. Skoro A jest nieujemnie określona, to każda wartość własna A jest nieujemna, więc istnieje rzeczywista symetryczna macierz $D^{\frac{1}{2}}$ taka, że $D^{\frac{1}{2}}D^{\frac{1}{2}}=D$. Wtedy $$B=PD^{\frac{1}{2}}P^T.$$ 
+
+$\cdot$ $B^2=PD^{\frac{1}{2}}P^TPD^{\frac{1}{2}}P^T=PD^{\frac{1}{2}}D^{\frac{1}{2}}P^T=PDP^T=A$
+
+$\cdot$ B jest symetryczna, bo $(PD^{\frac{1}{2}}P^T)^T=(P^T)^T(D^{\frac{1}{2}})^TP^T=PD^{\frac{1}{2}}P^T$
+
+$\cdot$ B jest rzeczywista oraz nieujemnie określona, bo A jest rzeczywista i nieujemnie określona.
+
+Udowodnijmy, że istnieje tylko jedna taka macierz. Niech B będzie symetryczną, rzeczywistą i nieujemnie określoną macierzą taką, że $B^2=A$ dla danej macierzy A. Wtedy B jest diagonalizowalna, więc $B=QWQ^T$. Skoro $A=B^2=QW^2Q^T$, to wartości własne A są kwadratami wartości własnych B. Skoro B jest nieujemnie określona, to każda wartość własna B jest nieujemna, więc wartości własne B, a nawet postać diagonalna B, są określone jednoznacznie przez wartości własne A i postać diagonalną A.
+
+Załóżmy nie wprost, że istnieją dwie macierze rzeczywiste, symetryczne i określone nieujemnie: $B_1,\ B_2$ takie, że $B_1^2=A=B_2^2$. Niech $B_1=PDP^T$ i $B_2=QDQ^T$ dla Q i P ortogonalnych. Wtedy: 
+\begin{align*}
+PD^2P^T&=QD^2Q^T\\
+D^2&=P^TQD^2Q^TP=UD^2U^T
+\end{align*} Jako że $D^2$ jest macierzą diagonalną, to $U=P^TQ$ musi być równa $k\cdot I_n$, a jako że U musi być ortogonalna, to $P^TQ=I\Rightarrow Q=P$, więc $B_1=B_2$ 
+\begin{flushright}
+$\blacksquare$
+\end{flushright}
+\begin{center}
+\large\textbf{8.} Dana jest symetryczna, rzeczywista i nieujemnie określona macierz A o wymiarach $n\times n$. Wykazać, że jeśli $x\in\mathds{R}^n$ jest takim wektorem, że $x^TAx=0$ to $Ax=0$
+\end{center}
+\textbf{DW.} Skoro A jest symetryczna to jest diagonalizowalna, więc niech $A=PDP^{-1}$ dla pewnej macierzy ortogonalnej P ($P^{-1}=P^T$) i macierzy diagonalnej D składającej się z wartości własnych A na głównej przekątnej. Skoro A jest nieujemnie określona, to każda wartość własna A jest nieujemna, więc istnieje rzeczywista symetryczna macierz $D^{\frac{1}{2}}$ taka, że $D^{\frac{1}{2}}D^{\frac{1}{2}}=D$. Stąd $$A=PDP^{-1}=PD^{\frac{1}{2}}D^{\frac{1}{2}}P^{-1}=PD^{\frac{1}{2}}(D^{\frac{1}{2}})^T P^T,$$
+więc $A=B^TB$ dla $B=P^T(D^{\frac{1}{2}})^T$. Wtedy
+$$x^TAx=x^TB^TBx=(Bx)^TBx=U^TU=0.$$
+Skoro $U^TU=0$, to $U=Bx=0$, więc 
+$$A=B^TB\Rightarrow Ax=B^TBx=B^T\cdot0=0$$
+\begin{flushright}
+$\blacksquare$
+\end{flushright}
+
+\begin{center}
+\large \textbf{9.} Macierz A wymiaru $n\times n$ spełnia równość $A^2=A$. Dowieść, że rząd macierzy A jest równy śladowi macierzy A.
+\end{center}
+\textbf{DW.} Niech $\lambda$ będzie wartością własną A oraz $x\neq0$ wektorem własnym odpowiadającym $\lambda$. Wtedy:
+$$Ax=\lambda x\Rightarrow AAx=\lambda Ax\Rightarrow A^2x=Ax=\lambda x=\lambda^2x\Rightarrow\lambda(\lambda-1)x=0,$$
+a skoro $x\neq0$, to $\lambda=1$ lub $\lambda=0$.
+
+Wiemy (przez postać Jordana macierzy A), że $tr(A)$ jest równa sumie wartości własnych, więc dla pewnych $a,b\in\mathds{N}:a,b\leq n,\ a+b=n$: $$tr(A)=0\cdot a+1\cdot b=b$$
+Twierdzenie o rzędzie mówi, że $rank(A)=n-\dim(\ker(A))$. Jądro A to wektory własne A, których odpowiadające wartości własne to zera (plus wektor zerowy), więc $\dim(\ker(A))=a$, stąd:
+$$rank(A)=n-a=b=tr(A)$$
+\begin{flushright}
+$\blacksquare$
+\end{flushright}
+
+\begin{center}
+  \large\textbf{10.} Wyznaczyć wszystkie pary $(a,b)$ liczb rzeczywistych, dla których istnieje dokładnie jedna macierz symetryczna macierz $M$ o wyrazach rzeczywistych i wymiarach $2\times2$ taka, że tr$ M=a$ oraz $\det M=b$.  
+\end{center}
+
+\normalsize
+
+Niech $M=\left[\begin{array}{cc}
+x & y \\
+y & z
+\end{array}\right],\quad x,y,z\in\mathds{R}$. Załóżmy, że: $$trM=x+z=a,\ \det M=xz-y^2=b$$
+
+Przekształcając i łącząc ze sobą te dwa równania otrzymujemy: 
+$$y^2=x(a-x)-b$$
+$$y=\pm\sqrt{x(a-x)-b}.$$
+Chcemy, aby $y$ było wyznaczone jednoznacznie, więc $y$ musi być równe 0. Stąd:
+$$x^2-ax+b=0.$$
+Chcemy, aby $x$ był wyznaczony jednoznacznie, więc $\Delta_x=a^2-4b$ musi być równa 0. Wtedy:
+$$b=\frac{a^2}{4},\quad x=\frac{a}{2}.$$
+Ostatecznie, dla każdej pary $(a,\frac{a^2}{4})$ liczb rzeczywistych istnieje dokładnie jedna macierz symetryczna M o wyrazach rzeczywistych, taka że tr$M=a$ i $\det M=\frac{a^2}{4}$, a dla każdej pary $(a,b)$ liczb rzeczywistych innej postaci niż $(a,\frac{a^2}{4})$ nie istnieje dokładnie jedna taka macierz.
+
+\begin{center}
+ \large \textbf{11.} Niech A będzie macierzą o wymiarach $n\times n$ i wyrazach zespolonych, która spełnia równość $A^3 = 0$. Udowodnić, że rząd macierzy A nie przekracza $\frac{2n}{3}$.   
+\end{center}
+
+\normalsize
+
+Najpierw zauważmy, że \begin{eqnarray}
+\forall_{a,b\in\mathds{R}/\{0\}}: (a+ib)^3\neq 0.
+\end{eqnarray}
+Istotnie, gdyby dla pewnych $a,b\in\mathds{R}/\{0\}: (a+ib)^3=0$, to $a^2-3b^2=0$ i $3a^2-b^2=0$, z czego wynika, że $a=0=b$. Przejdźmy do macierzy.
+
+\ 
+
+Niech $PJP^{-1}=A$ będzie postacią Jordana macierzy A. Wtedy
+$$A^3=PJ^3P^{-1}=0\Rightarrow J^3=0.$$
+Prawa równość wynika z tego, że jedyna macierz podobna do macierzy zerowej jest ona sama (m.in. dlatego, że macierz zerowa jest jedyną macierzą rzędu 0, a macierze podobne muszą mieć te same rzędy). Przyjrzyjmy się potęgowaniu macierzy Jordana: ($J_1,...,J_k$ to klatki Jordana)
+$$J^3=\left[\begin{array}{cccc}
+J_1 & 0 & \cdots & 0 \\
+0 & J_2 & \cdots & 0 \\
+\vdots & \vdots & \ddots & \vdots \\
+0 & 0 & \cdots & J_k 
+\end{array}\right]^3=\left[\begin{array}{cccc}
+J_1^3 & 0 & \cdots & 0 \\
+0 & J_2^3 & \cdots & 0 \\
+\vdots & \vdots & \ddots & \vdots \\
+0 & 0 & \cdots & J_k^3 
+\end{array}\right]=0$$
+Widać, że $\forall_{i\in\{1,...,k\}}: J_i^3=0$, a zachodzi (1), więc wartością własną odpowiadającą każdej klatce Jordana jest 0 (w szczególności jedyną wartością własną A jest 0). Zauważmy, że podnosząc klatkę Jordana do pewnej potęgi $a\in\mathds{N}$, której odpowiadającą wartością własną jest 0, tak naprawdę przesuwamy przekątną z "jedynkami" o $a-1$ miejsc w górę, np.
+$$\left[\begin{array}{ccc}
+0 & 1 & 0 \\
+0 & 0 & 1 \\
+0 & 0 & 0 
+\end{array}\right]^2=\left[\begin{array}{ccc}
+0 & 0 & 1 \\
+0 & 0 & 0 \\
+0 & 0 & 0 
+\end{array}\right].$$
+Stąd widać, że każda klatka Jordana macierzy $J$ musi być maksymalnie wymiaru $3\times3$ (bo gdyby klatka Jordana $J_i$ macierzy $J$ miała wymiar większy niż $3\times3$, to $J_i^3\neq0$), więc w macierzy $J$ jest co najmniej $\lceil\frac{n}{3}\rceil$ klatek Jordana. Wiemy, że liczba klatek Jordana odpowiadająca jednej wartości własnej jest równa liczbie liniowo niezależnych wektorów odpowiadających tej samej wartości własnej. Stąd wiemy, że macierz A ma co najmniej $\lceil\frac{n}{3}\rceil$ liniowo niezależnych wektorów odpowiadających wartości własnej 0, więc $$\dim(\ker A))\geq\left\lceil\frac{n}{3}\right\rceil$$  
+Ostatecznie, z tw. o rzędzie:
+$$rank(A)=n-\dim(\ker A))\leq n-\left\lceil\frac{n}{3}\right\rceil\leq n-\frac{n}{3}=\frac{2n}{3}$$
+\begin{flushright}
+$\blacksquare$
+\end{flushright}
+\end{document}

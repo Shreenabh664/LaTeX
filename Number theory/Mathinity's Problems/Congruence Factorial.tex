@@ -1,0 +1,46 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[legalpaper, portrait, margin=1in]{geometry}
+
+\title{Mathinity Factorial Problem}
+
+\author{Shreenabh Agrawal}
+
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Question}
+$$Let \: S_{n}=1 !+2 !+\ldots+n !$$
+Find all values of $n$ such that $S_{n}$ is a perfect square and prove that these are the only ones.
+\section{Solution}
+Let us start by calculating some values of this summation:
+$$\begin{aligned}
+S_{1} &=1 ! \\
+&=1 \\
+S_{2} &=1 !+2 ! \\
+&=1+2 \\
+&=3 \\
+S_{3} &=1 !+2 !+3 ! \\
+&=1+2+6 \\
+&=9 \\
+S_{4} &=1 !+2 !+3 !+4 !\\
+&=1+2+6+24 \\
+&=33 
+\end{aligned}$$
+Here, we can easily find the trivial solutions $$n = \: 1 \: \& \: n = \: 3$$
+Next, from $S_5$ onwards, there will always be multiples of 10 that would be added to $S_4$ (because $5!$ and consequently all larger factorials have 10 as a factor). Hence, we can write as (for $n > 4$)
+
+$$\begin{aligned}
+S_{n} & \equiv\left(S_{4}+10 k\right) \bmod 10 \\
+& \equiv S_{4} \bmod 10 \\
+& \equiv 3 \bmod 10
+\end{aligned}$$
+Which as we know can never be perfect squares. Thus our only answers are:
+
+$$\boxed{n = 1, \: 3}$$
+\end{document}

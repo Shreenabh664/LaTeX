@@ -1,0 +1,52 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[legalpaper, portrait, margin=1in]{geometry}
+
+\title{2016 ISI Calculus Problem}
+
+\author{Shreenabh Agrawal}
+
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Question}
+Let $f$ be a differentiable function such that $f(f((x))=x \text { for all } x \in[0,1]$ Suppose $f(0)=1 .$ Determine the value of $\int\limits_{0}^{1}(x-f(x))^{2016} \: d x$
+\section{Solution}
+$$f(f(x))=x \implies
+  f(x)=f^{-1}(x)$$
+The graph of this is symmetric about $y=x$,
+$$\therefore f(0) = 1 \implies f(1) = 0$$
+Now, let us solve the integral (call it (i))
+$${I}=\int\limits_{0}^{1}(x-f(x))^{2016}\:  d x$$
+Taking substitution,
+$$\begin{aligned}
+f(x) &=t \\
+x &=f^{-1}(t)=f(t) \\
+d x &=f^{\prime}(t) \: d t
+\end{aligned}$$
+Plugging this in (call this (ii)),
+$$\begin{aligned}
+\therefore \quad I &=\int\limits_{1}^{0}(f(t)-t)^{2016} f^{\prime}(t)\: d t \\
+&=-\int\limits_{0}^{1}(t-f(t))^{2016} f^{\prime}(t) \:d t
+\end{aligned}$$
+Now adding (i) and (ii),
+$$2 I=\int\limits_{0}^{1}(x-f(x))^{2016}\left(1-f^{\prime}(x)\right) \: d x$$
+Taking another substitution,
+$$\begin{aligned}
+(x - f(x)) &= u\\
+(1 - f^{\prime}(x)) \: dx &= \: du
+\end{aligned}
+$$
+Finally,
+$$\begin{aligned}
+\therefore \quad 2 I  & =  \int\limits_{-1}^{1}  u^{2016}\: d u \\
+ 2 I &=  2 \cdot\left[\frac{u^{2017}}{2017}\right]_{0}^{1}
+\end{aligned}$$
+Thus, the value of our original integral is:
+$$\boxed{I = \frac{1}{2017}}$$
+\end{document}

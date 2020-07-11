@@ -1,0 +1,77 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usepackage[T1]{fontenc}
+\usepackage{pagecolor}
+\usepackage{amssymb}
+\usepackage{lmodern}
+\usepackage{mathtools, nccmath}
+\usepackage{courier}
+\usepackage[overload]{empheq}
+\usepackage[inline, shortlabels]{enumitem}
+\usepackage{amsmath}
+\usepackage{mathtools} 
+\definecolor{myyellow}{RGB}{225,225,100}
+\definecolor{myred}{RGB}{220,100,100}
+\definecolor{mygreen}{RGB}{120,225,120}
+\definecolor{myblue}{RGB}{100,200,255}
+\definecolor{mypurple}{RGB}{200,140,255}
+\definecolor{myorange}{RGB}{255,150,50}
+\color{white}
+\pagecolor{black}
+\title{Solution to Linear algebra \#1}
+\author{@all.about.mathematics}
+\date{}
+
+\begin{document}
+\maketitle
+\large
+\section{Problem}
+Let $A$ be a square matrix. Then reflect its entries along the diagonal other than the diagonal and let the new matrix be $B$. Prove that $\det(A)=\det(B)$. 
+
+\medskip
+\noindent
+For example, if
+$$
+A=
+\begin{bmatrix} 
+1 & 4 & 7 \\
+2 & 5 & 8 \\
+3 & 6 & 9 \\
+\end{bmatrix}
+\implies
+B=
+\begin{bmatrix} 
+9 & 8 & 7 \\
+6 & 5 & 4 \\
+3 & 2 & 1 \\
+\end{bmatrix}
+$$
+\newpage
+\section{Solution}
+Let's use the example provided in the last page. First, let's take the transpose of A, which does not change its determinant.
+$$A=
+\begin{bmatrix} 
+1 & 4 & 7 \\
+2 & 5 & 8 \\
+3 & 6 & 9 \\
+\end{bmatrix}
+\implies
+A^T=
+\begin{bmatrix} 
+1 & 2 & 3 \\
+4 & 5 & 6 \\
+7 & 8 & 9 \\
+\end{bmatrix}$$
+We can see that $\mathbf{r_1}\longleftrightarrow \mathbf{r_3}$ and $\mathbf{c_1} \longleftrightarrow \mathbf{c_3} $ turns $A^T$ into $B$.
+\medskip
+
+\noindent{Similarly, we can deduce that for a $n\times n$ matrix $A$, the following EROs and ECOs can turn $A^T$ into it's corresponding $B$:}
+$$\{\mathbf{r_1}\longleftrightarrow\mathbf{r_n}\:,\: \mathbf{r_2}\longleftrightarrow\mathbf{r_{n-1}}\cdots \mathbf{r_{\left \lfloor{n/2}\right \rfloor}}\longleftrightarrow \mathbf{r_{\left \lceil{n/2}\right \rceil}}\} $$
+$$\{\mathbf{c_1}\longleftrightarrow\mathbf{c_n}\:,\: \mathbf{c_2}\longleftrightarrow\mathbf{c_{n-1}}\cdots \mathbf{c_{\left \lfloor{n/2}\right \rfloor}}\longleftrightarrow \mathbf{c_{\left \lceil{n/2}\right \rceil}}\}$$
+It's trivial that both sets have the same number of operations. Let that number be $m$. Since these Type I operations multiply the determinant by $-1$, $\det(B)$ can be calculated like this.
+$$\det(B)=\det(A^T)(-1)^m(-1)^m= \det(A)(-1)^{2m}= \det(A)$$
+Therefore our claim is proved.
+
+\end{document}
+

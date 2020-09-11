@@ -37,6 +37,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/Integral-dx"><img src="https://avatars2.githubusercontent.com/u/67577219?v=4" width="100px;" alt=""/><br /><sub><b>Integral-dx</b></sub></a><br /><a href="https://github.com/Shreenabh664/LaTeX/commits?author=Integral-dx" title="Code">💻</a></td>
     <td align="center"><a href="https://github.com/integral-fun"><img src="https://avatars2.githubusercontent.com/u/67751219?v=4" width="100px;" alt=""/><br /><sub><b>Integral.fun</b></sub></a><br /><a href="https://github.com/Shreenabh664/LaTeX/commits?author=integral-fun" title="Code">💻</a></td>
     <td align="center"><a href="http://instagram.com/mathinity"><img src="https://avatars1.githubusercontent.com/u/67941967?v=4" width="100px;" alt=""/><br /><sub><b>Andrzej Kukla</b></sub></a><br /><a href="https://github.com/Shreenabh664/LaTeX/commits?author=mathinity" title="Code">💻</a></td>
+    <td align="center"><a href="http://mathcompandmagarch.blogspot.com"><img src="https://avatars0.githubusercontent.com/u/70111839?v=4" width="100px;" alt=""/><br /><sub><b>Soham Chatterjee</b></sub></a><br /><a href="https://github.com/Shreenabh664/LaTeX/commits?author=sohamchatterjee08092002" title="Code">💻</a></td>
   </tr>
 </table>
 
